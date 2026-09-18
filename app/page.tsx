@@ -1,4 +1,10 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
       <header>
@@ -14,7 +20,24 @@ export default function Home() {
             <a href="#ceo">About the CEO</a>
           </nav>
           <a href="#contact" className="navcta">Start a Project</a>
+          <button
+            className="navmobile-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
         </div>
+        {menuOpen && (
+          <div className="mobile-menu">
+            <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+            <a href="#work" onClick={() => setMenuOpen(false)}>Our Work</a>
+            <a href="#process" onClick={() => setMenuOpen(false)}>Process</a>
+            <a href="#technology" onClick={() => setMenuOpen(false)}>Technology</a>
+            <a href="#ceo" onClick={() => setMenuOpen(false)}>About the CEO</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>Start a Project</a>
+          </div>
+        )}
       </header>
 
       <section className="hero">
