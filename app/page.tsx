@@ -13,6 +13,7 @@ export default function Home() {
             <span className="mark"></span>AROKELIX
           </div>
           <nav className="navlinks">
+            <a href="/about">About AROKELIX</a>
             <a href="#services">Services</a>
             <a href="#work">Our Work</a>
             <a href="#process">Process</a>
@@ -30,6 +31,7 @@ export default function Home() {
         </div>
         {menuOpen && (
           <div className="mobile-menu">
+            <a href="/about" onClick={() => setMenuOpen(false)}>About AROKELIX</a>
             <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
             <a href="#work" onClick={() => setMenuOpen(false)}>Our Work</a>
             <a href="#process" onClick={() => setMenuOpen(false)}>Process</a>
