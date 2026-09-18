@@ -25,7 +25,7 @@ export const metadata = {
     "AROKELIX designs and builds digital products, software and creative solutions for businesses and organizations.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body
