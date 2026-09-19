@@ -20,7 +20,7 @@ export default function Home() {
             <a href="#technology">Technology</a>
             <a href="#ceo">About the CEO</a>
           </nav>
-          <a href="#contact" className="navcta">Start a Project</a>
+          <a href="/contact" className="navcta">Start a Project</a>
           <button
             className="navmobile-btn"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -37,7 +37,7 @@ export default function Home() {
             <a href="#process" onClick={() => setMenuOpen(false)}>Process</a>
             <a href="#technology" onClick={() => setMenuOpen(false)}>Technology</a>
             <a href="#ceo" onClick={() => setMenuOpen(false)}>About the CEO</a>
-            <a href="#contact" onClick={() => setMenuOpen(false)}>Start a Project</a>
+            <a href="/contact" onClick={() => setMenuOpen(false)}>Start a Project</a>
           </div>
         )}
       </header>
@@ -53,7 +53,7 @@ export default function Home() {
               more than a freelancer.
             </p>
             <div className="hero-actions">
-              <a href="#contact" className="btn btn-primary">Start a Project</a>
+              <a href="/contact" className="btn btn-primary">Start a Project</a>
               <a href="#work" className="btn btn-secondary">Explore Our Work</a>
             </div>
           </div>
@@ -244,8 +244,8 @@ export default function Home() {
           <h2>Have a project in mind?<br />Let&apos;s build it.</h2>
           <p>Tell us what you&apos;re trying to solve — we&apos;ll follow up with next steps within one business day.</p>
           <div className="hero-actions">
-            <a href="#" className="btn btn-primary">Start a Project</a>
-            <a href="#" className="btn btn-secondary">Email us directly</a>
+            <a href="/contact" className="btn btn-primary">Start a Project</a>
+            <a href="mailto:aronmuiyionko57@gmail.com" className="btn btn-secondary">Email us directly</a>
           </div>
         </div>
       </section>
