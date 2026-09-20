@@ -9,7 +9,7 @@ const projects = [
     industry: "Mining",
     desc: "A corporate website for a Mozambican critical-minerals exploration and development company, presenting their mission, mineral portfolio and partnership approach.",
     gradient: "linear-gradient(135deg, var(--signal), var(--ink))",
-    link: "https://gmjrminerals.com",
+    caseStudy: "/work/gmjr",
   },
   {
     name: "Tensei Ark",
@@ -17,7 +17,7 @@ const projects = [
     industry: "Retail",
     desc: "A full electronics storefront with a live product catalog, cart, wishlist, product comparison and multi-currency support (KSH/USD).",
     gradient: "linear-gradient(135deg, var(--gold), var(--signal-dim))",
-    link: "https://tenseiark.store",
+    caseStudy: "/work/tenseiark",
   },
 ];
 
@@ -70,7 +70,7 @@ export default function Work() {
                 <div className="work-meta">{p.industry.toUpperCase()} — {p.category.toUpperCase()}</div>
                 <h3>{p.name}</h3>
                 <p>{p.desc}</p>
-                <a href={p.link} target="_blank" rel="noopener noreferrer" className="work-link">View project →</a>
+                <a href={p.caseStudy} className="work-link">View case study →</a>
               </div>
             ))}
           </div>
