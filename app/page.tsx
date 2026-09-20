@@ -34,6 +34,37 @@ function Reveal({ children }: { children: React.ReactNode }) {
   );
 }
 
+function Counter({ end, suffix = "", duration = 1200 }: { end: number; suffix?: string; duration?: number }) {
+  const ref = useRef(null);
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) {
+          setStarted(true);
+          const startTime = performance.now();
+          const step = (now: number) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            setCount(Math.floor(progress * end));
+            if (progress < 1) requestAnimationFrame(step);
+            else setCount(end);
+          };
+          requestAnimationFrame(step);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, [end, duration, started]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -106,19 +137,19 @@ export default function Home() {
         <Reveal>
           <div className="wrap stats-row">
             <div className="stat-item">
-              <div className="stat-num">2</div>
+              <div className="stat-num"><Counter end={2} /></div>
               <div className="stat-label">Projects delivered</div>
             </div>
             <div className="stat-item">
-              <div className="stat-num">2</div>
+              <div className="stat-num"><Counter end={2} /></div>
               <div className="stat-label">Industries served</div>
             </div>
             <div className="stat-item">
-              <div className="stat-num">100%</div>
+              <div className="stat-num"><Counter end={100} suffix="%" /></div>
               <div className="stat-label">Projects on time</div>
             </div>
             <div className="stat-item">
-              <div className="stat-num">24h</div>
+              <div className="stat-num"><Counter end={24} suffix="h" /></div>
               <div className="stat-label">Average response time</div>
             </div>
           </div>
@@ -179,18 +210,24 @@ export default function Home() {
           <div className="wrap" style={{ padding: 0 }}>
             <div className="work-grid">
               <div className="work-card">
-                <div className="work-visual" style={{ background: "linear-gradient(135deg, var(--signal), var(--ink))" }}></div>
+                <div
+                  className="work-visual"
+                  style={{ backgroundImage: "url(/gmjr-screenshot.png)", backgroundSize: "cover", backgroundPosition: "top" }}
+                ></div>
                 <div className="work-meta">MINING — WEBSITE</div>
                 <h3>GMJR Critical Minerals Mozambique</h3>
                 <p>A corporate website for a Mozambican critical-minerals exploration and development company.</p>
-                <a href="https://gmjrminerals.com" target="_blank" rel="noopener noreferrer" className="work-link">View project →</a>
+                <a href="/work/gmjr" className="work-link">View case study →</a>
               </div>
               <div className="work-card">
-                <div className="work-visual" style={{ background: "linear-gradient(135deg, var(--gold), var(--signal-dim))" }}></div>
+                <div
+                  className="work-visual"
+                  style={{ backgroundImage: "url(/tenseiark-screenshot.png)", backgroundSize: "cover", backgroundPosition: "top" }}
+                ></div>
                 <div className="work-meta">RETAIL — E-COMMERCE</div>
                 <h3>Tensei Ark</h3>
                 <p>A full electronics storefront with cart, wishlist, comparison and multi-currency support.</p>
-                <a href="https://tenseiark.store" target="_blank" rel="noopener noreferrer" className="work-link">View project →</a>
+                <a href="/work/tenseiark" className="work-link">View case study →</a>
               </div>
             </div>
           </div>
@@ -300,7 +337,7 @@ export default function Home() {
               <p></p>
             </div>
             <div className="ceo">
-              <div className="ceo-photo"></div>
+              <img src="/aron-photo.jpg" alt="Aron Muiyionko, CEO & Founder of AROKELIX" className="ceo-photo" />
               <div>
                 <h3>Aron Muiyionko</h3>
                 <div className="role">CEO & Founder, AROKELIX</div>

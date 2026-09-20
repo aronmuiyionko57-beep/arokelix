@@ -1,4 +1,4 @@
-export default function TenseiArkCaseStudy() {
+export default function GmjrCaseStudy() {
   return (
     <>
       <header>
@@ -14,13 +14,23 @@ export default function TenseiArkCaseStudy() {
 
       <section className="hero">
         <div className="wrap">
-          <div className="hero-kicker">Case Study — Retail / E-commerce</div>
-          <h1 style={{ maxWidth: "650px" }}>Tensei Ark</h1>
+          <div className="hero-kicker">Case Study — Mining</div>
+          <h1 style={{ maxWidth: "650px" }}>GMJR Critical Minerals Mozambique</h1>
           <p className="lede">
-            A full electronics storefront built for a Nairobi-based client,
-            supporting a live product catalog, cart, wishlist, product
-            comparison and multi-currency pricing.
+            A complete corporate website built from the ground up for a Mozambican
+            company focused on the exploration, development and commercialization
+            of critical mineral assets across Mozambique and Southern Africa.
           </p>
+        </div>
+      </section>
+
+      <section style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <img
+            src="/gmjr-screenshot.png"
+            alt="GMJR Critical Minerals Mozambique website screenshot"
+            style={{ width: "100%", borderRadius: "8px", border: "1px solid var(--line)" }}
+          />
         </div>
       </section>
 
@@ -29,31 +39,33 @@ export default function TenseiArkCaseStudy() {
           <div className="process-row" style={{ gridTemplateColumns: "1fr" }}>
             <h3>What we built</h3>
             <p className="p-desc">
-              AROKELIX built a complete e-commerce storefront for the client,
-              covering the product catalog, shopping cart, wishlist and
-              product comparison features, along with support for both
-              Kenyan Shilling and US Dollar pricing to serve local and
-              international buyers.
+              AROKELIX designed and developed the entire website — from information
+              architecture through to the final build. The site presents the
+              company&apos;s mission, mineral portfolio and partnership approach
+              in a way that meets the expectations of investors and industry
+              partners evaluating the company for the first time.
             </p>
           </div>
           <div className="process-row" style={{ gridTemplateColumns: "1fr" }}>
             <h3>Design approach</h3>
             <p className="p-desc">
-              A storefront built around clarity and ease of browsing — product
-              discovery, comparison and checkout designed to reduce friction
-              for customers shopping for electronics online.
+              A navy-and-gold visual identity, built for credibility in a
+              serious, capital-intensive industry — clean typography, clear
+              navigation between company information, mineral assets and
+              services, and content structured around how the industry itself
+              evaluates a company.
             </p>
           </div>
           <div className="process-row" style={{ gridTemplateColumns: "1fr" }}>
             <h3>Result</h3>
             <p className="p-desc">
-              A live online store the client uses to sell electronics directly
-              to customers in Kenya and beyond.
+              A live, professional web presence the company can point investors
+              and partners to with confidence.
             </p>
           </div>
           <div style={{ marginTop: "32px" }}>
-            <a href="https://tenseiark.store" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-              Visit the live store →
+            <a href="https://gmjrminerals.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              Visit the live site →
             </a>
           </div>
         </div>

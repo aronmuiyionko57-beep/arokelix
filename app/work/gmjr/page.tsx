@@ -24,6 +24,16 @@ export default function GmjrCaseStudy() {
         </div>
       </section>
 
+      <section style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <img
+            src="/gmjr-screenshot.png"
+            alt="GMJR Critical Minerals Mozambique website screenshot"
+            style={{ width: "100%", borderRadius: "8px", border: "1px solid var(--line)" }}
+          />
+        </div>
+      </section>
+
       <section>
         <div className="wrap" style={{ maxWidth: "720px" }}>
           <div className="process-row" style={{ gridTemplateColumns: "1fr" }}>

@@ -8,7 +8,7 @@ const projects = [
     category: "Websites",
     industry: "Mining",
     desc: "A corporate website for a Mozambican critical-minerals exploration and development company, presenting their mission, mineral portfolio and partnership approach.",
-    gradient: "linear-gradient(135deg, var(--signal), var(--ink))",
+    image: "/gmjr-screenshot.png",
     caseStudy: "/work/gmjr",
   },
   {
@@ -16,7 +16,7 @@ const projects = [
     category: "E-commerce",
     industry: "Retail",
     desc: "A full electronics storefront with a live product catalog, cart, wishlist, product comparison and multi-currency support (KSH/USD).",
-    gradient: "linear-gradient(135deg, var(--gold), var(--signal-dim))",
+    image: "/tenseiark-screenshot.png",
     caseStudy: "/work/tenseiark",
   },
 ];
@@ -66,7 +66,10 @@ export default function Work() {
           <div className="work-grid">
             {visible.map((p) => (
               <div className="work-card" key={p.name}>
-                <div className="work-visual" style={{ background: p.gradient }}></div>
+                <div
+                  className="work-visual"
+                  style={{ backgroundImage: `url(${p.image})`, backgroundSize: "cover", backgroundPosition: "top" }}
+                ></div>
                 <div className="work-meta">{p.industry.toUpperCase()} — {p.category.toUpperCase()}</div>
                 <h3>{p.name}</h3>
                 <p>{p.desc}</p>
