@@ -256,3 +256,12 @@ footer{padding:48px 0;}
 img{
   transition: opacity 0.3s ease;
 }
+
+@media (max-width:900px){
+  .hero-schema{
+    margin-top:24px;
+  }
+  .hero{
+    padding:48px 0 32px;
+  }
+}

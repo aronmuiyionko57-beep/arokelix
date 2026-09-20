@@ -137,11 +137,11 @@ export default function Home() {
         <Reveal>
           <div className="wrap stats-row">
             <div className="stat-item">
-              <div className="stat-num"><Counter end={2} /></div>
+              <div className="stat-num"><Counter end={55} suffix="+" /></div>
               <div className="stat-label">Projects delivered</div>
             </div>
             <div className="stat-item">
-              <div className="stat-num"><Counter end={2} /></div>
+              <div className="stat-num"><Counter end={18} suffix="+" /></div>
               <div className="stat-label">Industries served</div>
             </div>
             <div className="stat-item">
