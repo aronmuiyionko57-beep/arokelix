@@ -46,6 +46,8 @@ export default function Home() {
           </div>
           <nav className="navlinks">
             <a href="/about">About AROKELIX</a>
+            <a href="/solutions">Solutions</a>
+            <a href="/lab">Lab</a>
             <a href="#services">Services</a>
             <a href="/work">Our Work</a>
             <a href="#process">Process</a>
@@ -64,6 +66,8 @@ export default function Home() {
         {menuOpen && (
           <div className="mobile-menu">
             <a href="/about" onClick={() => setMenuOpen(false)}>About AROKELIX</a>
+            <a href="/solutions" onClick={() => setMenuOpen(false)}>Solutions</a>
+            <a href="/lab" onClick={() => setMenuOpen(false)}>Lab</a>
             <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
             <a href="/work" onClick={() => setMenuOpen(false)}>Our Work</a>
             <a href="#process" onClick={() => setMenuOpen(false)}>Process</a>
@@ -90,11 +94,10 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-schema">
-            <div className="head"><span className="dot"></span>current build queue</div>
-            <div className="row"><span>Client portal — Fintech</span><b>Development</b></div>
-            <div className="row"><span>Inventory system — Retail</span><b>Testing</b></div>
-            <div className="row"><span>Booking platform — Services</span><b>Design</b></div>
-            <div className="row"><span>Brand + site — Logistics</span><b>Planning</b></div>
+            <div className="head"><span className="dot"></span>recent work</div>
+            <div className="row"><span>GMJR Critical Minerals Mozambique</span><b>Live</b></div>
+            <div className="row"><span>Tensei Ark — E-commerce</span><b>Live</b></div>
+            <div className="row"><span>New projects</span><b>Open</b></div>
           </div>
         </div>
       </section>
@@ -103,11 +106,11 @@ export default function Home() {
         <Reveal>
           <div className="wrap stats-row">
             <div className="stat-item">
-              <div className="stat-num">12+</div>
+              <div className="stat-num">2</div>
               <div className="stat-label">Projects delivered</div>
             </div>
             <div className="stat-item">
-              <div className="stat-num">4</div>
+              <div className="stat-num">2</div>
               <div className="stat-label">Industries served</div>
             </div>
             <div className="stat-item">
@@ -170,38 +173,24 @@ export default function Home() {
           <div className="wrap">
             <div className="section-head">
               <h2>Selected work</h2>
-              <p>A sample of the systems and products we&apos;ve delivered for real businesses.</p>
+              <p>Real projects we&apos;ve delivered for real businesses.</p>
             </div>
           </div>
           <div className="wrap" style={{ padding: 0 }}>
             <div className="work-grid">
               <div className="work-card">
                 <div className="work-visual" style={{ background: "linear-gradient(135deg, var(--signal), var(--ink))" }}></div>
-                <div className="work-meta">RETAIL — WEB APP</div>
-                <h3>Inventory & ordering system</h3>
-                <p>Replaced three spreadsheets with one live system for stock, ordering and reporting.</p>
-                <a href="/work" className="work-link">View project</a>
+                <div className="work-meta">MINING — WEBSITE</div>
+                <h3>GMJR Critical Minerals Mozambique</h3>
+                <p>A corporate website for a Mozambican critical-minerals exploration and development company.</p>
+                <a href="https://gmjrminerals.com" target="_blank" rel="noopener noreferrer" className="work-link">View project →</a>
               </div>
               <div className="work-card">
                 <div className="work-visual" style={{ background: "linear-gradient(135deg, var(--gold), var(--signal-dim))" }}></div>
-                <div className="work-meta">SERVICES — BOOKING PLATFORM</div>
-                <h3>Client booking & scheduling</h3>
-                <p>Online booking, automated reminders and a staff calendar built to replace phone-only scheduling.</p>
-                <a href="/work" className="work-link">View project</a>
-              </div>
-              <div className="work-card">
-                <div className="work-visual" style={{ background: "linear-gradient(135deg, var(--ink), var(--gold))" }}></div>
-                <div className="work-meta">LOGISTICS — BRAND + WEBSITE</div>
-                <h3>Corporate site & brand refresh</h3>
-                <p>A new visual identity and website built to support a growing fleet and sales team.</p>
-                <a href="/work" className="work-link">View project</a>
-              </div>
-              <div className="work-card">
-                <div className="work-visual" style={{ background: "linear-gradient(135deg, var(--signal-dim), var(--gold))" }}></div>
-                <div className="work-meta">FINTECH — CLIENT PORTAL</div>
-                <h3>Secure client portal</h3>
-                <p>A dashboard where clients track statements, submit documents and message their account manager.</p>
-                <a href="/work" className="work-link">View project</a>
+                <div className="work-meta">RETAIL — E-COMMERCE</div>
+                <h3>Tensei Ark</h3>
+                <p>A full electronics storefront with cart, wishlist, comparison and multi-currency support.</p>
+                <a href="https://tenseiark.store" target="_blank" rel="noopener noreferrer" className="work-link">View project →</a>
               </div>
             </div>
           </div>

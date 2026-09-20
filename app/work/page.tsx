@@ -3,10 +3,22 @@
 import { useState } from "react";
 
 const projects = [
-  { name: "Inventory & ordering system", category: "Software", industry: "Retail", desc: "Replaced three spreadsheets with one live system for stock, ordering and reporting.", gradient: "linear-gradient(135deg, var(--signal), var(--ink))" },
-  { name: "Client booking & scheduling", category: "Web Apps", industry: "Services", desc: "Online booking, automated reminders and a staff calendar built to replace phone-only scheduling.", gradient: "linear-gradient(135deg, var(--gold), var(--signal-dim))" },
-  { name: "Corporate site & brand refresh", category: "Websites", industry: "Logistics", desc: "A new visual identity and website built to support a growing fleet and sales team.", gradient: "linear-gradient(135deg, var(--ink), var(--gold))" },
-  { name: "Secure client portal", category: "Web Apps", industry: "Fintech", desc: "A dashboard where clients track statements, submit documents and message their account manager.", gradient: "linear-gradient(135deg, var(--signal-dim), var(--gold))" },
+  {
+    name: "GMJR Critical Minerals Mozambique",
+    category: "Websites",
+    industry: "Mining",
+    desc: "A corporate website for a Mozambican critical-minerals exploration and development company, presenting their mission, mineral portfolio and partnership approach.",
+    gradient: "linear-gradient(135deg, var(--signal), var(--ink))",
+    link: "https://gmjrminerals.com",
+  },
+  {
+    name: "Tensei Ark",
+    category: "E-commerce",
+    industry: "Retail",
+    desc: "A full electronics storefront with a live product catalog, cart, wishlist, product comparison and multi-currency support (KSH/USD).",
+    gradient: "linear-gradient(135deg, var(--gold), var(--signal-dim))",
+    link: "https://tenseiark.store",
+  },
 ];
 
 const categories = ["All", "Websites", "Web Apps", "Mobile", "Software", "E-commerce", "UI/UX"];
@@ -32,7 +44,7 @@ export default function Work() {
         <div className="wrap">
           <div className="hero-kicker">Our Work</div>
           <h1 style={{ maxWidth: "600px" }}>Projects we&apos;ve delivered.</h1>
-          <p className="lede">A sample of the systems and products built for real businesses.</p>
+          <p className="lede">Real work for real businesses.</p>
         </div>
       </section>
 
@@ -58,7 +70,7 @@ export default function Work() {
                 <div className="work-meta">{p.industry.toUpperCase()} — {p.category.toUpperCase()}</div>
                 <h3>{p.name}</h3>
                 <p>{p.desc}</p>
-                <a href="#" className="work-link">View project</a>
+                <a href={p.link} target="_blank" rel="noopener noreferrer" className="work-link">View project →</a>
               </div>
             ))}
           </div>
