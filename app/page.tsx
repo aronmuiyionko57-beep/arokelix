@@ -8,7 +8,7 @@ import {
   SiGit, SiGithub, SiDocker,
 } from "react-icons/si";
 
-function Reveal({ children }) {
+function Reveal({ children }: { children: React.ReactNode }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
