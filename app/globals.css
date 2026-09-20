@@ -34,7 +34,7 @@ a{color:inherit;text-decoration:none;}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
 
 .bg-alt{
-  background: var(--surface);
+  background: var(--paper-raised);
 }
 .bg-raised{
   background: var(--paper-raised);
@@ -155,11 +155,53 @@ section{padding:88px 0;border-bottom:1px solid var(--line);}
 .why-item p{color:var(--text-2);font-size:14.5px;margin:0;}
 
 .process{border-top:1px solid var(--line);}
-.process-row{display:grid;grid-template-columns:64px 200px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline;}
-@media (max-width:700px){.process-row{grid-template-columns:40px 1fr;}.process-row .p-desc{grid-column:2;}}
-.process-row .p-num{font-family:"IBM Plex Mono",monospace;color:var(--signal);font-size:15px;}
-.process-row h3{font-size:18px;font-weight:500;}
-.process-row p{margin:0;color:var(--text-2);font-size:14.5px;max-width:56ch;}
+.process-timeline{position:relative;}
+.process-item{
+  position:relative;
+  display:grid;
+  grid-template-columns:56px 1fr;
+  gap:24px;
+  padding:28px 0;
+  border-radius:12px;
+  transition:background 0.2s ease, padding-left 0.2s ease;
+}
+.process-item:hover{
+  background:var(--surface);
+  padding-left:16px;
+}
+.process-item:not(:last-child)::before{
+  content:"";
+  position:absolute;
+  left:27px;
+  top:64px;
+  bottom:-4px;
+  width:2px;
+  background:var(--line);
+}
+.process-num{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:var(--surface);
+  border:2px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:"IBM Plex Mono",monospace;
+  font-weight:600;
+  font-size:15px;
+  color:var(--signal);
+  flex-shrink:0;
+  z-index:1;
+  transition:background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.process-item:hover .process-num{
+  background:var(--signal);
+  border-color:var(--signal);
+  color:#fff;
+}
+.process-content h3{font-size:18px;font-weight:600;margin-bottom:6px;}
+.process-content p{margin:0;color:var(--text-2);font-size:14.5px;max-width:56ch;}
 
 .tech-groups{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
 @media (max-width:900px){.tech-groups{grid-template-columns:repeat(2,1fr);}}
@@ -257,11 +299,90 @@ img{
   transition: opacity 0.3s ease;
 }
 
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
 @media (max-width:900px){
-  .hero-schema{
-    margin-top:24px;
-  }
-  .hero{
-    padding:48px 0 32px;
-  }
+  .card-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:600px){
+  .card-grid{grid-template-columns:1fr;}
+}
+.info-card{
+  background:var(--surface);
+  border-radius:16px;
+  padding:28px;
+  box-shadow:0 2px 12px rgba(17,24,39,0.06);
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+.info-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(17,24,39,0.1);
+}
+.info-card-icon{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  background:var(--paper-raised);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--signal);
+  margin-bottom:18px;
+}
+.info-card-label{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.info-card-title{
+  font-size:19px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.info-card-arrow{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--paper-raised);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--ink);
+  transition:background 0.2s ease, transform 0.2s ease;
+}
+.info-card:hover .info-card-arrow{
+  background:var(--signal);
+  color:#fff;
+  transform:translateX(3px);
+}
+
+.back-to-top{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:var(--surface);
+  border:1px solid var(--line);
+  box-shadow:0 4px 16px rgba(17,24,39,0.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:40;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.2s ease;
+}
+.back-to-top.visible{
+  opacity:1;
+  pointer-events:auto;
 }

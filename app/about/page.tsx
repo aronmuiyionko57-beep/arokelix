@@ -1,4 +1,12 @@
+import { Target, Eye, Gem } from "lucide-react";
+
 export default function About() {
+  const values = [
+    { icon: Target, label: "Mission", name: "Real software for real businesses", desc: "Give organizations access to engineering and design usually reserved for companies with in-house product teams." },
+    { icon: Eye, label: "Vision", name: "Technology that fits the business", desc: "We choose tools to match what a business actually needs — never the other way around." },
+    { icon: Gem, label: "Values", name: "Built to last, not to demo", desc: "Every project is judged by whether it's still working — and still helping — a year later." },
+  ];
+
   return (
     <>
       <header>
@@ -9,9 +17,9 @@ export default function About() {
           <nav className="navlinks">
             <a href="/">Home</a>
             <a href="/#services">Services</a>
-            <a href="/#work">Our Work</a>
+            <a href="/work">Our Work</a>
           </nav>
-          <a href="/#contact" className="navcta">Start a Project</a>
+          <a href="/contact" className="navcta">Start a Project</a>
         </div>
       </header>
 
@@ -35,22 +43,18 @@ export default function About() {
           <div className="section-head">
             <h2>What we believe</h2>
           </div>
-          <div className="why-grid">
-            <div className="why-item">
-              <div className="num">Mission</div>
-              <h3>Real software for real businesses</h3>
-              <p>Give organizations access to engineering and design usually reserved for companies with in-house product teams.</p>
-            </div>
-            <div className="why-item">
-              <div className="num">Vision</div>
-              <h3>Technology that fits the business</h3>
-              <p>We choose tools to match what a business actually needs — never the other way around.</p>
-            </div>
-            <div className="why-item">
-              <div className="num">Values</div>
-              <h3>Built to last, not to demo</h3>
-              <p>Every project is judged by whether it&apos;s still working — and still helping — a year later.</p>
-            </div>
+          <div className="card-grid">
+            {values.map((v) => {
+              const Icon = v.icon;
+              return (
+                <div className="info-card" key={v.name}>
+                  <div className="info-card-icon"><Icon size={22} /></div>
+                  <div className="info-card-label">{v.label}</div>
+                  <div className="info-card-title">{v.name}</div>
+                  <p style={{ color: "var(--text-2)", fontSize: "14px", margin: 0 }}>{v.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

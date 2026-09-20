@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { Globe, Code2, Smartphone, ShoppingCart, Palette, Settings, ArrowRight, ChevronUp, ShieldCheck, Lightbulb, TrendingUp } from "lucide-react";
 import {
   SiReact, SiNextdotjs, SiJavascript, SiHtml5,
   SiNodedotjs, SiPython,
@@ -63,6 +64,26 @@ function Counter({ end, suffix = "", duration = 1200 }: { end: number; suffix?: 
   }, [end, duration, started]);
 
   return <span ref={ref}>{count}{suffix}</span>;
+}
+
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 500);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <button
+      className={`back-to-top ${visible ? "visible" : ""}`}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Back to top"
+    >
+      <ChevronUp size={20} />
+    </button>
+  );
 }
 
 export default function Home() {
@@ -163,36 +184,42 @@ export default function Home() {
               <h2>What we build</h2>
               <p>Software and creative work, delivered as one connected engagement rather than separate vendors.</p>
             </div>
-            <div className="services-list">
-              <div className="service-row">
-                <h3>Websites & Web Apps</h3>
-                <p>Marketing sites, dashboards and web applications built on modern, maintainable stacks.</p>
-                <div className="service-tags"><span className="tag">React</span><span className="tag">Next.js</span><span className="tag">UI/UX</span></div>
+            <div className="card-grid">
+              <div className="info-card">
+                <div className="info-card-icon"><Globe size={22} /></div>
+                <div className="info-card-label">Web</div>
+                <div className="info-card-title">Websites & Web Apps</div>
+                <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
-              <div className="service-row">
-                <h3>Custom Software</h3>
-                <p>Internal tools, business systems and automation that replace spreadsheets and manual process.</p>
-                <div className="service-tags"><span className="tag">Node.js</span><span className="tag">APIs</span><span className="tag">Automation</span></div>
+              <div className="info-card">
+                <div className="info-card-icon"><Code2 size={22} /></div>
+                <div className="info-card-label">Software</div>
+                <div className="info-card-title">Custom Software</div>
+                <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
-              <div className="service-row">
-                <h3>Mobile Apps</h3>
-                <p>Cross-platform apps for customers or field teams, connected to your website and backend.</p>
-                <div className="service-tags"><span className="tag">React Native</span><span className="tag">iOS</span><span className="tag">Android</span></div>
+              <div className="info-card">
+                <div className="info-card-icon"><Smartphone size={22} /></div>
+                <div className="info-card-label">Mobile</div>
+                <div className="info-card-title">Mobile Apps</div>
+                <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
-              <div className="service-row">
-                <h3>E-commerce</h3>
-                <p>Storefronts and checkout systems built for real inventory, payments and fulfillment.</p>
-                <div className="service-tags"><span className="tag">Stripe</span><span className="tag">Inventory</span><span className="tag">Storefront</span></div>
+              <div className="info-card">
+                <div className="info-card-icon"><ShoppingCart size={22} /></div>
+                <div className="info-card-label">Retail</div>
+                <div className="info-card-title">E-commerce</div>
+                <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
-              <div className="service-row">
-                <h3>Branding & Creative</h3>
-                <p>Visual identity, digital marketing assets and graphic design that hold up across a real product.</p>
-                <div className="service-tags"><span className="tag">Brand</span><span className="tag">Design</span><span className="tag">Marketing</span></div>
+              <div className="info-card">
+                <div className="info-card-icon"><Palette size={22} /></div>
+                <div className="info-card-label">Creative</div>
+                <div className="info-card-title">Branding & Creative</div>
+                <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
-              <div className="service-row">
-                <h3>IT Consulting & Support</h3>
-                <p>Architecture guidance, system integration and ongoing maintenance after launch.</p>
-                <div className="service-tags"><span className="tag">Cloud</span><span className="tag">Integration</span><span className="tag">Support</span></div>
+              <div className="info-card">
+                <div className="info-card-icon"><Settings size={22} /></div>
+                <div className="info-card-label">Support</div>
+                <div className="info-card-title">IT Consulting & Support</div>
+                <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
             </div>
           </div>
@@ -241,21 +268,24 @@ export default function Home() {
               <h2>Why AROKELIX</h2>
               <p>Not just execution — a partner who understands the business problem behind the build request.</p>
             </div>
-            <div className="why-grid">
-              <div className="why-item">
-                <div className="num">Quality</div>
-                <h3>Built to last, not to demo</h3>
-                <p>Clean architecture and real testing, so what ships doesn&apos;t fall apart six months in.</p>
+            <div className="card-grid">
+              <div className="info-card">
+                <div className="info-card-icon"><ShieldCheck size={22} /></div>
+                <div className="info-card-label">Quality</div>
+                <div className="info-card-title">Built to last, not to demo</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: 0 }}>Clean architecture and real testing, so what ships doesn&apos;t fall apart six months in.</p>
               </div>
-              <div className="why-item">
-                <div className="num">Approach</div>
-                <h3>Problems first, code second</h3>
-                <p>We start from what the business actually needs, and choose technology to fit.</p>
+              <div className="info-card">
+                <div className="info-card-icon"><Lightbulb size={22} /></div>
+                <div className="info-card-label">Approach</div>
+                <div className="info-card-title">Problems first, code second</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: 0 }}>We start from what the business actually needs, and choose technology to fit.</p>
               </div>
-              <div className="why-item">
-                <div className="num">Outcome</div>
-                <h3>Measured by results</h3>
-                <p>Every engagement is judged by what it changes for your business.</p>
+              <div className="info-card">
+                <div className="info-card-icon"><TrendingUp size={22} /></div>
+                <div className="info-card-label">Outcome</div>
+                <div className="info-card-title">Measured by results</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: 0 }}>Every engagement is judged by what it changes for your business.</p>
               </div>
             </div>
           </div>
@@ -269,14 +299,35 @@ export default function Home() {
               <h2>Our process</h2>
               <p>The same seven steps for every engagement, scaled to the size of the project.</p>
             </div>
-            <div>
-              <div className="process-row"><div className="p-num">01</div><h3>Discover</h3><p className="p-desc">Understand your objectives, constraints and requirements.</p></div>
-              <div className="process-row"><div className="p-num">02</div><h3>Plan</h3><p className="p-desc">Define the solution, architecture and a realistic development plan.</p></div>
-              <div className="process-row"><div className="p-num">03</div><h3>Design</h3><p className="p-desc">Design the experience and interface around how users actually work.</p></div>
-              <div className="process-row"><div className="p-num">04</div><h3>Build</h3><p className="p-desc">Develop the solution in a modular, maintainable codebase.</p></div>
-              <div className="process-row"><div className="p-num">05</div><h3>Test</h3><p className="p-desc">Verify functionality, performance, security and responsiveness.</p></div>
-              <div className="process-row"><div className="p-num">06</div><h3>Deploy</h3><p className="p-desc">Launch to production with proper domain, hosting and monitoring.</p></div>
-              <div className="process-row"><div className="p-num">07</div><h3>Support</h3><p className="p-desc">Ongoing maintenance and improvements once the project is live.</p></div>
+            <div className="process-timeline">
+              <div className="process-item">
+                <div className="process-num">01</div>
+                <div className="process-content"><h3>Discover</h3><p>Understand your objectives, constraints and requirements.</p></div>
+              </div>
+              <div className="process-item">
+                <div className="process-num">02</div>
+                <div className="process-content"><h3>Plan</h3><p>Define the solution, architecture and a realistic development plan.</p></div>
+              </div>
+              <div className="process-item">
+                <div className="process-num">03</div>
+                <div className="process-content"><h3>Design</h3><p>Design the experience and interface around how users actually work.</p></div>
+              </div>
+              <div className="process-item">
+                <div className="process-num">04</div>
+                <div className="process-content"><h3>Build</h3><p>Develop the solution in a modular, maintainable codebase.</p></div>
+              </div>
+              <div className="process-item">
+                <div className="process-num">05</div>
+                <div className="process-content"><h3>Test</h3><p>Verify functionality, performance, security and responsiveness.</p></div>
+              </div>
+              <div className="process-item">
+                <div className="process-num">06</div>
+                <div className="process-content"><h3>Deploy</h3><p>Launch to production with proper domain, hosting and monitoring.</p></div>
+              </div>
+              <div className="process-item">
+                <div className="process-num">07</div>
+                <div className="process-content"><h3>Support</h3><p>Ongoing maintenance and improvements once the project is live.</p></div>
+              </div>
             </div>
           </div>
         </Reveal>
@@ -371,6 +422,8 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <BackToTop />
     </>
   );
 }

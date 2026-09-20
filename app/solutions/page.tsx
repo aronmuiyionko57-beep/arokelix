@@ -1,14 +1,16 @@
+import { Building2, Workflow, ShoppingBag, Users, Package, BarChart3, CalendarCheck, Globe2, Cog } from "lucide-react";
+
 export default function Solutions() {
   const solutions = [
-    { name: "Business Digitization", desc: "Move core operations off paper and spreadsheets into systems your team can actually rely on." },
-    { name: "Business Process Automation", desc: "Automate repetitive manual work so your team spends time on what actually needs a person." },
-    { name: "Online Selling", desc: "Sell online with a storefront built around your real inventory, pricing and fulfillment process." },
-    { name: "Customer Management", desc: "Track customers, communication and history in one place instead of scattered across tools." },
-    { name: "Inventory Management", desc: "Real-time stock tracking across locations, with alerts before you run out or overorder." },
-    { name: "Data & Reporting", desc: "Turn scattered numbers into dashboards that actually answer the questions your business asks." },
-    { name: "Online Booking", desc: "Let customers book directly, with automated reminders and a calendar your staff can trust." },
-    { name: "Digital Presence", desc: "A professional website and brand presence that matches the quality of the work you actually do." },
-    { name: "Internal Business Systems", desc: "Custom internal tools built around how your team actually works, not a generic template." },
+    { icon: Building2, label: "Digitization", name: "Business Digitization", desc: "Move core operations off paper and spreadsheets into systems your team can actually rely on." },
+    { icon: Workflow, label: "Automation", name: "Business Process Automation", desc: "Automate repetitive manual work so your team spends time on what actually needs a person." },
+    { icon: ShoppingBag, label: "Retail", name: "Online Selling", desc: "Sell online with a storefront built around your real inventory, pricing and fulfillment process." },
+    { icon: Users, label: "CRM", name: "Customer Management", desc: "Track customers, communication and history in one place instead of scattered across tools." },
+    { icon: Package, label: "Inventory", name: "Inventory Management", desc: "Real-time stock tracking across locations, with alerts before you run out or overorder." },
+    { icon: BarChart3, label: "Data", name: "Data & Reporting", desc: "Turn scattered numbers into dashboards that actually answer the questions your business asks." },
+    { icon: CalendarCheck, label: "Booking", name: "Online Booking", desc: "Let customers book directly, with automated reminders and a calendar your staff can trust." },
+    { icon: Globe2, label: "Presence", name: "Digital Presence", desc: "A professional website and brand presence that matches the quality of the work you actually do." },
+    { icon: Cog, label: "Internal", name: "Internal Business Systems", desc: "Custom internal tools built around how your team actually works, not a generic template." },
   ];
 
   return (
@@ -35,13 +37,19 @@ export default function Solutions() {
 
       <section>
         <div className="wrap">
-          <div className="services-list">
-            {solutions.map((s) => (
-              <div className="service-row" key={s.name} style={{ gridTemplateColumns: "280px 1fr" }}>
-                <h3>{s.name}</h3>
-                <p>{s.desc}</p>
-              </div>
-            ))}
+          <div className="card-grid">
+            {solutions.map((s) => {
+              const Icon = s.icon;
+              return (
+                <div className="info-card" key={s.name}>
+                  <div className="info-card-icon"><Icon size={22} /></div>
+                  <div className="info-card-label">{s.label}</div>
+                  <div className="info-card-title">{s.name}</div>
+                  <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>{s.desc}</p>
+                  <div className="info-card-arrow">→</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
