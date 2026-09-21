@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Globe, Code2, Smartphone, ShoppingCart, Palette, Settings, ArrowRight, ChevronUp, ShieldCheck, Lightbulb, TrendingUp } from "lucide-react";
+import { Globe, Code2, Smartphone, ShoppingCart, Palette, Settings, ArrowRight, ChevronUp, ShieldCheck, Lightbulb, TrendingUp, Users } from "lucide-react";
 import {
   SiReact, SiNextdotjs, SiJavascript, SiHtml5,
   SiNodedotjs, SiPython,
@@ -131,25 +131,35 @@ export default function Home() {
       </header>
 
       <section className="hero">
-        <div className="wrap hero-grid">
-          <div>
-            <div className="hero-kicker">AROKELIX — Digital Products, Technology, Creative Solutions</div>
-            <h1>Digital products, built like systems.</h1>
-            <p className="lede">
-              AROKELIX designs and engineers software, websites and digital
-              systems for businesses that need more than a template — and
-              more than a freelancer.
-            </p>
-            <div className="hero-actions">
-              <a href="/contact" className="btn btn-primary">Start a Project</a>
-              <a href="/work" className="btn btn-secondary">Explore Our Work</a>
-            </div>
+        <div className="hero-photo-bg">
+          <img src="/hero-photo.jpg" alt="AROKELIX technology professional at work" />
+        </div>
+        <div className="wrap hero-content">
+          <div className="hero-eyebrow">Welcome to AROKELIX</div>
+          <h1 className="hero-photo-h1">
+            Technology Solutions for a <span className="accent">Bigger Tomorrow</span>
+          </h1>
+          <p className="hero-photo-lede">
+            We design and build modern websites, powerful brand identities and smart
+            digital systems that help businesses grow — locally and globally.
+          </p>
+          <div className="hero-photo-actions">
+            <a href="#services" className="btn btn-gold">Our Services <ArrowRight size={16} /></a>
+            <a href="/work" className="btn btn-outline-light">View Our Work <ArrowRight size={16} /></a>
           </div>
-          <div className="hero-schema">
-            <div className="head"><span className="dot"></span>recent work</div>
-            <div className="row"><span>GMJR Critical Minerals Mozambique</span><b>Live</b></div>
-            <div className="row"><span>Tensei Ark — E-commerce</span><b>Live</b></div>
-            <div className="row"><span>New projects</span><b>Open</b></div>
+          <div className="hero-proof-row">
+            <div className="hero-proof-item">
+              <div className="hero-proof-icon"><Globe size={18} /></div>
+              <div><b>Global Reach</b><span>Local Roots</span></div>
+            </div>
+            <div className="hero-proof-item">
+              <div className="hero-proof-icon"><Users size={18} /></div>
+              <div><b>Real Projects</b><span>Delivered</span></div>
+            </div>
+            <div className="hero-proof-item">
+              <div className="hero-proof-icon"><Code2 size={18} /></div>
+              <div><b>Direct Access</b><span>Work With the Builder</span></div>
+            </div>
           </div>
         </div>
       </section>
