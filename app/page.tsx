@@ -93,9 +93,9 @@ export default function Home() {
     <>
       <header>
         <div className="wrap nav">
-          <div className="logo">
-            <span className="mark"></span>AROKELIX
-          </div>
+          <a href="/" className="logo">
+            <img src="/logo.png" alt="AROKELIX" className="logo-img" />
+          </a>
           <nav className="navlinks">
             <a href="/about">About AROKELIX</a>
             <a href="/solutions">Solutions</a>
@@ -413,6 +413,9 @@ export default function Home() {
       </section>
 
       <footer>
+        <div className="wrap" style={{ marginBottom: "24px" }}>
+          <img src="/logo.png" alt="AROKELIX" style={{ height: "96px", width: "auto", mixBlendMode: "multiply" }} />
+        </div>
         <div className="wrap foot-row">
           <div>© {new Date().getFullYear()} AROKELIX. Digital Products. Technology. Creative Solutions.</div>
           <div className="foot-links">
