@@ -198,37 +198,57 @@ export default function Home() {
               <div className="info-card">
                 <div className="info-card-icon"><Globe size={22} /></div>
                 <div className="info-card-label">Web</div>
-                <div className="info-card-title">Websites & Web Apps</div>
+                <div className="info-card-title">Websites & Web Applications</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Corporate websites, landing pages, portals and custom web applications designed around business goals.</p>
                 <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
               <div className="info-card">
                 <div className="info-card-icon"><Code2 size={22} /></div>
                 <div className="info-card-label">Software</div>
                 <div className="info-card-title">Custom Software</div>
-                <div className="info-card-arrow"><ArrowRight size={16} /></div>
-              </div>
-              <div className="info-card">
-                <div className="info-card-icon"><Smartphone size={22} /></div>
-                <div className="info-card-label">Mobile</div>
-                <div className="info-card-title">Mobile Apps</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Business software and internal systems built around specific operational requirements.</p>
                 <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
               <div className="info-card">
                 <div className="info-card-icon"><ShoppingCart size={22} /></div>
                 <div className="info-card-label">Retail</div>
                 <div className="info-card-title">E-commerce</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Online stores and commerce systems designed for sales, payments and growth.</p>
+                <div className="info-card-arrow"><ArrowRight size={16} /></div>
+              </div>
+              <div className="info-card">
+                <div className="info-card-icon"><Smartphone size={22} /></div>
+                <div className="info-card-label">Mobile</div>
+                <div className="info-card-title">Mobile Applications</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Modern mobile applications designed for customers, teams and business operations.</p>
                 <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
               <div className="info-card">
                 <div className="info-card-icon"><Palette size={22} /></div>
                 <div className="info-card-label">Creative</div>
                 <div className="info-card-title">Branding & Creative</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Brand identities, visual systems and digital creative assets.</p>
+                <div className="info-card-arrow"><ArrowRight size={16} /></div>
+              </div>
+              <div className="info-card">
+                <div className="info-card-icon"><TrendingUp size={22} /></div>
+                <div className="info-card-label">Growth</div>
+                <div className="info-card-title">Digital Marketing</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Digital campaigns, content systems, SEO and online growth solutions.</p>
                 <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
               <div className="info-card">
                 <div className="info-card-icon"><Settings size={22} /></div>
-                <div className="info-card-label">Support</div>
-                <div className="info-card-title">IT Consulting & Support</div>
+                <div className="info-card-label">Automation</div>
+                <div className="info-card-title">Automation & Business Systems</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Digital workflows and automation that improve efficiency and reduce repetitive work.</p>
+                <div className="info-card-arrow"><ArrowRight size={16} /></div>
+              </div>
+              <div className="info-card">
+                <div className="info-card-icon"><Lightbulb size={22} /></div>
+                <div className="info-card-label">Strategy</div>
+                <div className="info-card-title">IT / Digital Consulting</div>
+                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Technology strategy and digital transformation support for businesses.</p>
                 <div className="info-card-arrow"><ArrowRight size={16} /></div>
               </div>
             </div>

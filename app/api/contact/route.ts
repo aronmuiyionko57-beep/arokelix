@@ -6,13 +6,13 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const { name, email, company, message } = data;
+    const { name, company, email, phone, service, budget, message } = data;
 
     await resend.emails.send({
       from: "AROKELIX Website <onboarding@resend.dev>",
       to: "aronmuiyionko57@gmail.com",
-      subject: `New project inquiry from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || "—"}\n\nMessage:\n${message}`,
+      subject: `New project enquiry from ${name} — ${service || "General"}`,
+      text: `Name: ${name}\nCompany: ${company || "—"}\nEmail: ${email}\nPhone/WhatsApp: ${phone || "—"}\nService needed: ${service || "—"}\nBudget: ${budget || "—"}\n\nProject description:\n${message}`,
     });
 
     return NextResponse.json({ success: true });
