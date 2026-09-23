@@ -613,3 +613,56 @@ img{
 @media (max-width:600px){
   .contact-form-card{padding:24px;border-radius:16px;}
 }
+
+.footer-main{
+  padding:64px 0 32px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr 1fr;
+  gap:40px;
+  margin-bottom:48px;
+}
+@media (max-width:800px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media (max-width:500px){
+  .footer-grid{grid-template-columns:1fr;}
+}
+.footer-brand-tagline{
+  font-size:13.5px;
+  color:var(--text-2);
+  margin-top:14px;
+  max-width:32ch;
+  line-height:1.6;
+}
+.footer-col h4{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--text-2);
+  margin-bottom:16px;
+}
+.footer-col ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+.footer-col a, .footer-col li{
+  font-size:14px;
+  color:var(--text-1);
+}
+.footer-col a:hover{
+  color:var(--signal);
+}
+.footer-bottom{
+  border-top:1px solid var(--line);
+  padding-top:24px;
+  font-size:13px;
+  color:var(--text-2);
+}
