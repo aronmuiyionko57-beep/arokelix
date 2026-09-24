@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "GMJR Critical Minerals Mozambique — Case Study | AROKELIX",
+  description: "How AROKELIX designed and built a corporate website for a Mozambican critical-minerals exploration and development company.",
+};
+
 export default function GmjrCaseStudy() {
   return (
     <>

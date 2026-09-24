@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "AROKELIX Lab | Experiments & Emerging Technology",
+  description: "New technology, AI experiments and internal tools AROKELIX is building and testing.",
+};
+
 export default function Lab() {
   return (
     <>

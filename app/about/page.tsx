@@ -1,5 +1,10 @@
 import { Target, Eye, Gem } from "lucide-react";
 
+export const metadata = {
+  title: "About AROKELIX | Digital Technology & Creative Studio",
+  description: "AROKELIX is a technology and creative studio building websites, software and digital systems for businesses that need more than a template.",
+};
+
 export default function About() {
   const values = [
     { icon: Target, label: "Mission", name: "Real software for real businesses", desc: "Give organizations access to engineering and design usually reserved for companies with in-house product teams." },

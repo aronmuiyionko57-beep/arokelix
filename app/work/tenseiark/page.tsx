@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Tensei Ark — Case Study | AROKELIX",
+  description: "How AROKELIX built a full e-commerce storefront for a Nairobi-based electronics retailer.",
+};
+
 export default function TenseiArkCaseStudy() {
   return (
     <>

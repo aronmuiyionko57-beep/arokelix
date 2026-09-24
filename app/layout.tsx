@@ -10,9 +10,14 @@ import "@fontsource/ibm-plex-mono/500.css";
 import "./globals.css";
 
 export const metadata = {
-  title: "AROKELIX — Digital Products, Technology, Creative Solutions",
+  title: "AROKELIX | Technology, Software & Digital Solutions",
   description:
-    "AROKELIX designs and builds digital products, software and creative solutions for businesses and organizations.",
+    "AROKELIX designs and builds modern websites, software and digital systems for businesses across Africa and beyond.",
+  openGraph: {
+    title: "AROKELIX | Technology, Software & Digital Solutions",
+    description: "AROKELIX designs and builds modern websites, software and digital systems for businesses across Africa and beyond.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

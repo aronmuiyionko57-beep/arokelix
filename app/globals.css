@@ -666,3 +666,44 @@ img{
   font-size:13px;
   color:var(--text-2);
 }
+
+/* Keyboard focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:2px solid var(--signal);
+  outline-offset:2px;
+  border-radius:2px;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{
+    opacity:1 !important;
+    transform:none !important;
+  }
+}
+
+/* Skip link for keyboard users */
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:0;
+  background:var(--ink);
+  color:#fff;
+  padding:12px 20px;
+  z-index:100;
+  border-radius:0 0 6px 0;
+  font-size:14px;
+}
+.skip-link:focus{
+  left:0;
+}

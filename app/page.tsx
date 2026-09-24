@@ -91,6 +91,8 @@ export default function Home() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
       <header>
         <div className="wrap nav">
           <a href="/" className="logo">
@@ -130,7 +132,7 @@ export default function Home() {
         )}
       </header>
 
-      <section className="hero">
+      <section id="main-content" className="hero">
         <div className="hero-photo-bg">
           <img src="/hero-photo.jpg" alt="AROKELIX technology professional at work" />
         </div>
@@ -269,6 +271,7 @@ export default function Home() {
               <div className="work-card">
                 <div
                   className="work-visual"
+                  aria-hidden="true"
                   style={{ backgroundImage: "url(/gmjr-screenshot.png)", backgroundSize: "cover", backgroundPosition: "top" }}
                 ></div>
                 <div className="work-meta">MINING — WEBSITE</div>
@@ -279,6 +282,7 @@ export default function Home() {
               <div className="work-card">
                 <div
                   className="work-visual"
+                  aria-hidden="true"
                   style={{ backgroundImage: "url(/tenseiark-screenshot.png)", backgroundSize: "cover", backgroundPosition: "top" }}
                 ></div>
                 <div className="work-meta">RETAIL — E-COMMERCE</div>

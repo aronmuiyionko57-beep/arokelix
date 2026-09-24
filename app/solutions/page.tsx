@@ -1,5 +1,10 @@
 import { Building2, Workflow, ShoppingBag, Users, Package, BarChart3, CalendarCheck, Globe2, Cog } from "lucide-react";
 
+export const metadata = {
+  title: "Solutions | AROKELIX",
+  description: "Business digitization, automation, e-commerce and internal systems — technology solutions built around real business problems.",
+};
+
 export default function Solutions() {
   const solutions = [
     { icon: Building2, label: "Digitization", name: "Business Digitization", desc: "Move core operations off paper and spreadsheets into systems your team can actually rely on." },

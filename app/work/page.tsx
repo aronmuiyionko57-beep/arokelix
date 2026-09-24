@@ -29,6 +29,8 @@ export default function Work() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
       <header>
         <div className="wrap nav">
           <a href="/" className="logo">
@@ -42,7 +44,7 @@ export default function Work() {
         </div>
       </header>
 
-      <section className="hero">
+      <section id="main-content" className="hero">
         <div className="wrap">
           <div className="hero-kicker">Our Work</div>
           <h1 style={{ maxWidth: "600px" }}>Projects we&apos;ve delivered.</h1>
@@ -52,12 +54,13 @@ export default function Work() {
 
       <section>
         <div className="wrap">
-          <div className="filter-row">
+          <div className="filter-row" role="group" aria-label="Filter projects by category">
             {categories.map((cat) => (
               <button
                 key={cat}
                 className={`filter-btn ${filter === cat ? "active" : ""}`}
                 onClick={() => setFilter(cat)}
+                aria-pressed={filter === cat}
               >
                 {cat}
               </button>
@@ -70,6 +73,7 @@ export default function Work() {
               <div className="work-card" key={p.name}>
                 <div
                   className="work-visual"
+                  aria-hidden="true"
                   style={{ backgroundImage: `url(${p.image})`, backgroundSize: "cover", backgroundPosition: "top" }}
                 ></div>
                 <div className="work-meta">{p.industry.toUpperCase()} — {p.category.toUpperCase()}</div>
