@@ -315,6 +315,8 @@ export default function Home() {
         </Reveal>
       </section>
 
+      <Engagements />
+
       <section id="technology">
         <Reveal>
           <div className="wrap">
@@ -384,6 +386,8 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
+
+      <ProjectPlanner />
 
       <FAQ />
 
