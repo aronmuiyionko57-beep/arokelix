@@ -1,4 +1,4 @@
-import { Target, Eye, Gem } from "lucide-react";
+import { Target, Eye, Gem, Send, ArrowRight } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 
@@ -50,6 +50,20 @@ export default function About() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="cta">
+        <div className="wrap">
+          <h2>Have a project in mind?<br />Let&apos;s talk.</h2>
+          <div className="hero-actions">
+            <a href="/contact" className="btn btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+              <Send size={16} /> Start a Project
+            </a>
+            <a href="/services" className="btn btn-secondary" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+              Our Services <ArrowRight size={16} />
+            </a>
           </div>
         </div>
       </section>

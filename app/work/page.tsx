@@ -2,8 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import {
+  LayoutGrid, Globe, AppWindow, Smartphone, Code2, ShoppingCart, Palette,
+  ArrowRight, FolderOpen, Send, MessageCircle,
+} from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import { WHATSAPP_URL } from "../lib/site";
 
 const projects = [
   {
@@ -24,7 +29,17 @@ const projects = [
   },
 ];
 
-const categories = ["All", "Websites", "Web Apps", "Mobile", "Software", "E-commerce", "UI/UX"];
+const categories = [
+  { name: "All", icon: LayoutGrid },
+  { name: "Websites", icon: Globe },
+  { name: "Web Apps", icon: AppWindow },
+  { name: "Mobile", icon: Smartphone },
+  { name: "Software", icon: Code2 },
+  { name: "E-commerce", icon: ShoppingCart },
+  { name: "UI/UX", icon: Palette },
+];
+
+const iconRow = { display: "inline-flex", alignItems: "center", gap: "6px" } as const;
 
 export default function Work() {
   const [filter, setFilter] = useState("All");
@@ -45,16 +60,20 @@ export default function Work() {
       <section>
         <div className="wrap">
           <div className="filter-row" role="group" aria-label="Filter projects by category">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`filter-btn ${filter === cat ? "active" : ""}`}
-                onClick={() => setFilter(cat)}
-                aria-pressed={filter === cat}
-              >
-                {cat}
-              </button>
-            ))}
+            {categories.map((cat) => {
+              const Icon = cat.icon;
+              return (
+                <button
+                  key={cat.name}
+                  className={`filter-btn ${filter === cat.name ? "active" : ""}`}
+                  onClick={() => setFilter(cat.name)}
+                  aria-pressed={filter === cat.name}
+                  style={iconRow}
+                >
+                  <Icon size={15} aria-hidden="true" /> {cat.name}
+                </button>
+              );
+            })}
           </div>
         </div>
         <div className="wrap" style={{ padding: 0, marginTop: "40px" }}>
@@ -67,13 +86,32 @@ export default function Work() {
                 <div className="work-meta">{p.industry.toUpperCase()} — {p.category.toUpperCase()}</div>
                 <h3>{p.name}</h3>
                 <p>{p.desc}</p>
-                <a href={p.caseStudy} className="work-link">View case study →</a>
+                <a href={p.caseStudy} className="work-link" style={iconRow}>
+                  View case study <ArrowRight size={16} aria-hidden="true" />
+                </a>
               </div>
             ))}
           </div>
           {visible.length === 0 && (
-            <p style={{ color: "var(--text-2)", padding: "40px 28px" }}>No projects in this category yet.</p>
+            <p style={{ color: "var(--text-2)", padding: "40px 28px", ...iconRow }}>
+              <FolderOpen size={20} aria-hidden="true" /> No projects in this category yet.
+            </p>
           )}
+        </div>
+      </section>
+
+      <section className="cta">
+        <div className="wrap">
+          <h2>Want your project here next?</h2>
+          <p>Tell us what you&apos;re building and we&apos;ll reply within one business day.</p>
+          <div className="hero-actions">
+            <a href="/contact" className="btn btn-primary" style={iconRow}>
+              <Send size={16} /> Start a Project
+            </a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={iconRow}>
+              <MessageCircle size={16} /> Chat on WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 

@@ -2,7 +2,11 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Globe, Code2, ArrowRight, ChevronUp, ShieldCheck, Lightbulb, TrendingUp, Users } from "lucide-react";
+import {
+  Globe, Code2, ArrowRight, ChevronUp, ShieldCheck, Lightbulb, TrendingUp, Users,
+  Search, ClipboardList, PenTool, Hammer, FlaskConical, Rocket, LifeBuoy,
+  Webhook, Mail, Send,
+} from "lucide-react";
 import {
   SiReact, SiNextdotjs, SiJavascript, SiHtml5,
   SiNodedotjs, SiPython,
@@ -10,8 +14,19 @@ import {
   SiGit, SiGithub, SiDocker,
 } from "react-icons/si";
 import { services } from "./services/data";
+import { SITE_EMAIL } from "./lib/site";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
+
+const processSteps = [
+  { n: "01", icon: Search, title: "Discover", text: "Understand your objectives, constraints and requirements." },
+  { n: "02", icon: ClipboardList, title: "Plan", text: "Define the solution, architecture and a realistic development plan." },
+  { n: "03", icon: PenTool, title: "Design", text: "Design the experience and interface around how users actually work." },
+  { n: "04", icon: Hammer, title: "Build", text: "Develop the solution in a modular, maintainable codebase." },
+  { n: "05", icon: FlaskConical, title: "Test", text: "Verify functionality, performance, security and responsiveness." },
+  { n: "06", icon: Rocket, title: "Deploy", text: "Launch to production with proper domain, hosting and monitoring." },
+  { n: "07", icon: LifeBuoy, title: "Support", text: "Ongoing maintenance and improvements once the project is live." },
+];
 
 function Reveal({ children }: { children: React.ReactNode }) {
   const ref = useRef(null);
@@ -94,6 +109,8 @@ function BackToTop() {
     </button>
   );
 }
+
+const iconLink = { display: "inline-flex", alignItems: "center", gap: "6px" } as const;
 
 export default function Home() {
   return (
@@ -181,7 +198,7 @@ export default function Home() {
               })}
             </div>
             <div style={{ marginTop: "32px" }}>
-              <a href="/services" className="work-link">View all services →</a>
+              <a href="/services" className="work-link" style={iconLink}>View all services <ArrowRight size={16} /></a>
             </div>
           </div>
         </Reveal>
@@ -204,7 +221,7 @@ export default function Home() {
                 <div className="work-meta">FURNITURE — E-COMMERCE</div>
                 <h3>OKOA Furniture</h3>
                 <p>An online furniture store with a 270+ piece catalogue, shop-by-room browsing and ordering through WhatsApp.</p>
-                <a href="/work/okoa" className="work-link">View case study →</a>
+                <a href="/work/okoa" className="work-link" style={iconLink}>View case study <ArrowRight size={16} /></a>
               </div>
               <div className="work-card">
                 <div className="work-visual" aria-hidden="true">
@@ -213,7 +230,7 @@ export default function Home() {
                 <div className="work-meta">RETAIL — E-COMMERCE</div>
                 <h3>Tensei Ark</h3>
                 <p>A full electronics storefront with cart, wishlist, comparison and multi-currency support.</p>
-                <a href="/work/tenseiark" className="work-link">View case study →</a>
+                <a href="/work/tenseiark" className="work-link" style={iconLink}>View case study <ArrowRight size={16} /></a>
               </div>
             </div>
           </div>
@@ -259,34 +276,18 @@ export default function Home() {
               <p>The same seven steps for every engagement, scaled to the size of the project.</p>
             </div>
             <div className="process-timeline">
-              <div className="process-item">
-                <div className="process-num">01</div>
-                <div className="process-content"><h3>Discover</h3><p>Understand your objectives, constraints and requirements.</p></div>
-              </div>
-              <div className="process-item">
-                <div className="process-num">02</div>
-                <div className="process-content"><h3>Plan</h3><p>Define the solution, architecture and a realistic development plan.</p></div>
-              </div>
-              <div className="process-item">
-                <div className="process-num">03</div>
-                <div className="process-content"><h3>Design</h3><p>Design the experience and interface around how users actually work.</p></div>
-              </div>
-              <div className="process-item">
-                <div className="process-num">04</div>
-                <div className="process-content"><h3>Build</h3><p>Develop the solution in a modular, maintainable codebase.</p></div>
-              </div>
-              <div className="process-item">
-                <div className="process-num">05</div>
-                <div className="process-content"><h3>Test</h3><p>Verify functionality, performance, security and responsiveness.</p></div>
-              </div>
-              <div className="process-item">
-                <div className="process-num">06</div>
-                <div className="process-content"><h3>Deploy</h3><p>Launch to production with proper domain, hosting and monitoring.</p></div>
-              </div>
-              <div className="process-item">
-                <div className="process-num">07</div>
-                <div className="process-content"><h3>Support</h3><p>Ongoing maintenance and improvements once the project is live.</p></div>
-              </div>
+              {processSteps.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <div className="process-item" key={s.n}>
+                    <div className="process-num">{s.n}</div>
+                    <div className="process-content">
+                      <h3 style={iconLink}><Icon size={20} aria-hidden="true" /> {s.title}</h3>
+                      <p>{s.text}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </Reveal>
@@ -314,7 +315,7 @@ export default function Home() {
                 <ul>
                   <li><SiNodedotjs /> Node.js</li>
                   <li><SiPython /> Python</li>
-                  <li>REST APIs</li>
+                  <li><Webhook /> REST APIs</li>
                 </ul>
               </div>
               <div className="tech-group">
@@ -331,7 +332,7 @@ export default function Home() {
                   <li><SiGit /> Git</li>
                   <li><SiGithub /> GitHub</li>
                   <li><SiDocker /> Docker</li>
-                  <li>VS Code</li>
+                  <li><Code2 /> VS Code</li>
                 </ul>
               </div>
             </div>
@@ -367,8 +368,8 @@ export default function Home() {
           <h2>Have a project in mind?<br />Let&apos;s build it.</h2>
           <p>Tell us what you&apos;re trying to solve — we&apos;ll follow up with next steps within one business day.</p>
           <div className="hero-actions">
-            <a href="/contact" className="btn btn-primary">Start a Project</a>
-            <a href="mailto:aronmuiyionko57@gmail.com" className="btn btn-secondary">Email us directly</a>
+            <a href="/contact" className="btn btn-primary" style={iconLink}><Send size={16} /> Start a Project</a>
+            <a href={`mailto:${SITE_EMAIL}`} className="btn btn-secondary" style={iconLink}><Mail size={16} /> Email us directly</a>
           </div>
         </div>
       </section>

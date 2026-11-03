@@ -1,11 +1,17 @@
-import { Building2, Workflow, ShoppingBag, Users, Package, BarChart3, CalendarCheck, Globe2, Cog } from "lucide-react";
+import {
+  Building2, Workflow, ShoppingBag, Users, Package, BarChart3,
+  CalendarCheck, Globe2, Cog, Send, MessageCircle,
+} from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import { WHATSAPP_URL } from "../lib/site";
 
 export const metadata = {
   title: "Solutions | AROKELIX",
   description: "Business digitization, automation, e-commerce and internal systems — technology solutions built around real business problems.",
 };
+
+const iconBtn = { display: "inline-flex", alignItems: "center", gap: "6px" } as const;
 
 export default function Solutions() {
   const solutions = [
@@ -55,7 +61,12 @@ export default function Solutions() {
           <h2>Not sure which fits your business?</h2>
           <p>Tell us what you&apos;re dealing with — we&apos;ll help you figure out the right approach.</p>
           <div className="hero-actions">
-            <a href="/contact" className="btn btn-primary">Start a Project</a>
+            <a href="/contact" className="btn btn-primary" style={iconBtn}>
+              <Send size={16} /> Start a Project
+            </a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={iconBtn}>
+              <MessageCircle size={16} /> Chat on WhatsApp
+            </a>
           </div>
         </div>
       </section>

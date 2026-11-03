@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Mail, Phone, Globe as GlobeIcon, MessageCircle } from "lucide-react";
+import { Mail, Phone, Globe as GlobeIcon } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import { SITE_EMAIL, SITE_PHONE, WHATSAPP_URL } from "../lib/site";
@@ -76,6 +77,13 @@ export default function Contact() {
               you turn it into a digital solution that works — beautifully,
               efficiently and built for long-term growth.
             </p>
+            <div className="contact-actions">
+              <a href={`mailto:${SITE_EMAIL}`}><Mail size={16} aria-hidden="true" /> Email</a>
+              <a href={`tel:${SITE_PHONE}`}><Phone size={16} aria-hidden="true" /> Call</a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="wa">
+                <SiWhatsapp size={16} aria-hidden="true" /> WhatsApp
+              </a>
+            </div>
           </div>
           <div className="contact-hero-photo" style={{ position: "relative" }}>
             <Image src="/contact-photo.jpg" alt="AROKELIX workspace" fill style={{ objectFit: "cover", borderRadius: "16px" }} priority />
@@ -95,7 +103,7 @@ export default function Contact() {
             </p>
 
             <div className="contact-item">
-              <div className="contact-icon"><Mail size={20} /></div>
+              <div className="contact-icon"><Mail size={20} aria-hidden="true" /></div>
               <div>
                 <b>Email Us</b>
                 <div><a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a></div>
@@ -104,24 +112,25 @@ export default function Contact() {
             </div>
 
             <div className="contact-item">
-              <div className="contact-icon"><Phone size={20} /></div>
+              <div className="contact-icon"><Phone size={20} aria-hidden="true" /></div>
               <div>
-                <b>Call / WhatsApp</b>
+                <b>Call Us</b>
                 <div><a href={`tel:${SITE_PHONE}`}>+254 706 519 789</a></div>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                  style={{ marginTop: "12px", display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <MessageCircle size={16} /> Chat on WhatsApp
-                </a>
               </div>
             </div>
 
             <div className="contact-item">
-              <div className="contact-icon"><GlobeIcon size={20} /></div>
+              <div className="contact-icon"><SiWhatsapp size={20} aria-hidden="true" /></div>
+              <div>
+                <b>WhatsApp</b>
+                <div>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
+                </div>
+              </div>
+            </div>
+
+            <div className="contact-item">
+              <div className="contact-icon"><GlobeIcon size={20} aria-hidden="true" /></div>
               <div>
                 <b>Where We Work</b>
                 <div>Remote — serving clients globally</div>
