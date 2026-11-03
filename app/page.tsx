@@ -19,11 +19,10 @@ import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import FAQ from "./components/FAQ";
 import Engagements from "./components/Engagements";
-import Commitments from "./components/Commitments";
-import Testimonials from "./components/Testimonials";
 import ProjectPlanner from "./components/ProjectPlanner";
 import Industries from "./components/Industries";
-
+import Commitments from "./components/Commitments";
+import Testimonials from "./components/Testimonials";
 
 const processSteps = [
   { n: "01", icon: Search, title: "Discover", text: "Understand your objectives, constraints and requirements." },
@@ -290,6 +289,8 @@ export default function Home() {
         </Reveal>
       </section>
 
+      <Industries />
+
       <section id="process" className="process bg-alt">
         <Reveal>
           <div className="wrap">
@@ -390,6 +391,10 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
+
+      <Commitments />
+
+      <Testimonials />
 
       <ProjectPlanner />
 

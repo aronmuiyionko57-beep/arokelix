@@ -24,10 +24,11 @@ export default function AnnouncementBar() {
   return (
     <div className="announce" role="region" aria-label="Announcement">
       <div className="wrap announce-inner">
-        <span className="announce-dot" aria-hidden="true" />
-        <p>
-          Now taking on new projects — tell us what you need and we reply within one business day.
-        </p>
+        <span className="announce-badge">
+          <span className="announce-dot" aria-hidden="true" />
+          Open for projects
+        </span>
+        <p>Tell us what you need — we reply within one business day.</p>
         <a href="/contact" className="announce-link">
           Start a project <ArrowRight size={14} aria-hidden="true" />
         </a>

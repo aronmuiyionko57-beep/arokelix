@@ -58,8 +58,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ScrollProgress />
-<AnnouncementBar />
-{children}
+        <AnnouncementBar />
+        {children}
         <FloatingWhatsApp />
       </body>
     </html>
