@@ -5,7 +5,7 @@ import Image from "next/image";
 import {
   Globe, Code2, ArrowRight, ChevronUp, ShieldCheck, Lightbulb, TrendingUp, Users,
   Search, ClipboardList, PenTool, Hammer, FlaskConical, Rocket, LifeBuoy,
-  Webhook, Mail, Send,
+  Webhook, Mail, Send, Check, X,
 } from "lucide-react";
 import {
   SiReact, SiNextdotjs, SiJavascript, SiHtml5,
@@ -26,6 +26,13 @@ const processSteps = [
   { n: "05", icon: FlaskConical, title: "Test", text: "Verify functionality, performance, security and responsiveness." },
   { n: "06", icon: Rocket, title: "Deploy", text: "Launch to production with proper domain, hosting and monitoring." },
   { n: "07", icon: LifeBuoy, title: "Support", text: "Ongoing maintenance and improvements once the project is live." },
+];
+
+const compareRows = [
+  { topic: "Who you talk to", them: "Account managers and handoffs between teams", us: "The person actually building your project" },
+  { topic: "Where we start", them: "A template and a quote", us: "Your business problem, then the right technology" },
+  { topic: "Who does the work", them: "Separate vendors for design, code and marketing", us: "One team, one connected engagement" },
+  { topic: "After launch", them: "Handover and goodbye", us: "Ongoing support and improvements" },
 ];
 
 function Reveal({ children }: { children: React.ReactNode }) {
@@ -204,33 +211,35 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section id="work">
+      <section id="work" className="section-dark">
         <Reveal>
           <div className="wrap">
             <div className="section-head">
               <h2>Selected work</h2>
               <p>Real projects we&apos;ve delivered for real businesses.</p>
             </div>
-          </div>
-          <div className="wrap" style={{ padding: 0 }}>
-            <div className="work-grid">
-              <div className="work-card">
-                <div className="work-visual" aria-hidden="true">
-                  <Image src="/okoa-screenshot.png" alt="" fill style={{ objectFit: "cover", objectPosition: "top" }} />
+            <div className="showcase">
+              <div className="showcase-item">
+                <a href="/work/okoa" className="showcase-visual" aria-label="OKOA Furniture case study">
+                  <Image src="/okoa-screenshot.png" alt="OKOA Furniture online store" fill sizes="(max-width:860px) 100vw, 640px" style={{ objectFit: "cover", objectPosition: "top" }} />
+                </a>
+                <div className="showcase-body">
+                  <div className="showcase-meta">FURNITURE — E-COMMERCE</div>
+                  <h3>OKOA Furniture</h3>
+                  <p>An online furniture store with a 270+ piece catalogue, shop-by-room browsing and ordering through WhatsApp.</p>
+                  <a href="/work/okoa" className="work-link" style={iconLink}>View case study <ArrowRight size={16} /></a>
                 </div>
-                <div className="work-meta">FURNITURE — E-COMMERCE</div>
-                <h3>OKOA Furniture</h3>
-                <p>An online furniture store with a 270+ piece catalogue, shop-by-room browsing and ordering through WhatsApp.</p>
-                <a href="/work/okoa" className="work-link" style={iconLink}>View case study <ArrowRight size={16} /></a>
               </div>
-              <div className="work-card">
-                <div className="work-visual" aria-hidden="true">
-                  <Image src="/tenseiark-screenshot.png" alt="" fill style={{ objectFit: "cover", objectPosition: "top" }} />
+              <div className="showcase-item">
+                <a href="/work/tenseiark" className="showcase-visual" aria-label="Tensei Ark case study">
+                  <Image src="/tenseiark-screenshot.png" alt="Tensei Ark electronics store" fill sizes="(max-width:860px) 100vw, 640px" style={{ objectFit: "cover", objectPosition: "top" }} />
+                </a>
+                <div className="showcase-body">
+                  <div className="showcase-meta">RETAIL — E-COMMERCE</div>
+                  <h3>Tensei Ark</h3>
+                  <p>A full electronics storefront with cart, wishlist, comparison and multi-currency support.</p>
+                  <a href="/work/tenseiark" className="work-link" style={iconLink}>View case study <ArrowRight size={16} /></a>
                 </div>
-                <div className="work-meta">RETAIL — E-COMMERCE</div>
-                <h3>Tensei Ark</h3>
-                <p>A full electronics storefront with cart, wishlist, comparison and multi-currency support.</p>
-                <a href="/work/tenseiark" className="work-link" style={iconLink}>View case study <ArrowRight size={16} /></a>
               </div>
             </div>
           </div>
@@ -264,11 +273,26 @@ export default function Home() {
                 <p style={{ color: "var(--text-2)", fontSize: "14px", margin: 0 }}>Every engagement is judged by what it changes for your business.</p>
               </div>
             </div>
+
+            <div className="compare" role="table" aria-label="AROKELIX compared with a typical agency approach">
+              <div className="compare-head" role="row">
+                <div role="columnheader"></div>
+                <div role="columnheader">Typical approach</div>
+                <div role="columnheader" className="us">With AROKELIX</div>
+              </div>
+              {compareRows.map((r) => (
+                <div className="compare-row" role="row" key={r.topic}>
+                  <div className="topic" role="cell">{r.topic}</div>
+                  <div className="them" role="cell"><X size={18} aria-hidden="true" /><span>{r.them}</span></div>
+                  <div className="us" role="cell"><Check size={18} aria-hidden="true" /><span>{r.us}</span></div>
+                </div>
+              ))}
+            </div>
           </div>
         </Reveal>
       </section>
 
-      <section id="process" className="process">
+      <section id="process" className="process bg-alt">
         <Reveal>
           <div className="wrap">
             <div className="section-head">
@@ -293,7 +317,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section id="technology" className="bg-alt">
+      <section id="technology">
         <Reveal>
           <div className="wrap">
             <div className="section-head">
