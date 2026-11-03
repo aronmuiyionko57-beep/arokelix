@@ -4,6 +4,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X, ArrowRight } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "/about", label: "About" },
@@ -36,17 +37,20 @@ export default function SiteHeader() {
               </a>
             ))}
           </nav>
-          <a href="/contact" className="navcta">
-            Start a Project <ArrowRight size={16} aria-hidden="true" style={{ marginLeft: 6, verticalAlign: "middle" }} />
-          </a>
-          <button
-            className="navmobile-btn"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-            aria-expanded={open}
-          >
-            {open ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
-          </button>
+          <div className="nav-actions">
+            <ThemeToggle />
+            <a href="/contact" className="navcta">
+              Start a Project <ArrowRight size={16} aria-hidden="true" style={{ marginLeft: 6, verticalAlign: "middle" }} />
+            </a>
+            <button
+              className="navmobile-btn"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+              aria-expanded={open}
+            >
+              {open ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+            </button>
+          </div>
         </div>
         {open && (
           <div className="mobile-menu">

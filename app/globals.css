@@ -1790,3 +1790,206 @@ section.banner-wrap,
   margin:0 0 18px;
 }
 .article p:first-of-type{color:var(--text-1);}
+
+/* ===== Theme toggle ===== */
+.nav-actions{display:flex;align-items:center;gap:12px;}
+.theme-toggle{
+  width:44px;height:44px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text-1);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:border-color .2s ease, color .2s ease, transform .2s ease, background .3s ease;
+}
+.theme-toggle:hover{border-color:var(--signal);color:var(--signal);transform:translateY(-1px);}
+.theme-toggle .icon-sun{display:none;}
+html[data-theme="dark"] .theme-toggle .icon-moon{display:none;}
+html[data-theme="dark"] .theme-toggle .icon-sun{display:block;}
+
+/* ===== Dark mode ===== */
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#0E1526;
+  --bg:#0E1526;
+  --paper-raised:#121B31;
+  --surface:#161F36;
+  --line:rgba(255,255,255,0.11);
+  --text-1:#E8ECF4;
+  --text-2:#A9B3C8;
+  --signal:#4F8CF7;
+  --signal-dim:#93C5FD;
+}
+
+/* Header and logo */
+html[data-theme="dark"] header{
+  background:rgba(14,21,38,0.86);
+  border-bottom-color:rgba(255,255,255,0.08);
+  box-shadow:0 8px 28px rgba(0,0,0,0.35);
+}
+html[data-theme="dark"] header .logo{background:#fff;padding:6px 14px;border-radius:12px;}
+html[data-theme="dark"] header .logo-img{mix-blend-mode:normal;height:46px;}
+@media (max-width:600px){
+  html[data-theme="dark"] header .logo-img{height:34px;}
+}
+html[data-theme="dark"] .navlinks a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+html[data-theme="dark"] .navlinks a[aria-current="page"]{background:rgba(79,140,247,0.18);color:#BFD7FF;}
+html[data-theme="dark"] .navmobile-btn,
+html[data-theme="dark"] .mobile-menu{background:var(--surface);}
+
+/* Surfaces that were hard-coded white */
+html[data-theme="dark"] .stats-row,
+html[data-theme="dark"] .facts,
+html[data-theme="dark"] .planner,
+html[data-theme="dark"] .plan:not(.plan-featured),
+html[data-theme="dark"] .faq-item,
+html[data-theme="dark"] .industry-card,
+html[data-theme="dark"] .tech-group,
+html[data-theme="dark"] .check-list li,
+html[data-theme="dark"] .testimonial,
+html[data-theme="dark"] .planner-chip,
+html[data-theme="dark"] .contact-actions a,
+html[data-theme="dark"] .ceo .role{
+  background:var(--surface);
+}
+html[data-theme="dark"] .contact-actions a{border-color:var(--line);color:var(--text-1);}
+html[data-theme="dark"] .contact-actions a.wa{background:#25D366;border-color:#25D366;color:#fff;}
+html[data-theme="dark"] .planner-progress span:not(.on){background:rgba(255,255,255,0.14);}
+html[data-theme="dark"] .planner-summary li{
+  background:rgba(79,140,247,0.12);
+  border-color:rgba(79,140,247,0.28);
+}
+
+/* Section backgrounds */
+html[data-theme="dark"] #technology{
+  background:
+    radial-gradient(700px 360px at 100% 0%, rgba(79,140,247,0.12), transparent 60%),
+    linear-gradient(180deg,#0E1526 0%,#111A30 100%);
+}
+html[data-theme="dark"] #ceo{
+  background:
+    radial-gradient(700px 420px at 92% 8%, rgba(251,191,36,0.10), transparent 60%),
+    radial-gradient(600px 400px at 0% 100%, rgba(79,140,247,0.14), transparent 60%),
+    linear-gradient(180deg,#111A30 0%,#0F1729 100%);
+}
+html[data-theme="dark"] .contact-hero{
+  background:linear-gradient(135deg,#111A30 0%,#14234A 60%,#182B5C 100%);
+}
+html[data-theme="dark"] .bestfor{
+  background:linear-gradient(90deg,rgba(251,191,36,0.12),var(--surface) 70%);
+}
+
+/* Text that used the dark ink colour */
+html[data-theme="dark"] .ceo h3,
+html[data-theme="dark"] .ceo p:first-of-type,
+html[data-theme="dark"] .contact-item b,
+html[data-theme="dark"] .contact-hero-h1,
+html[data-theme="dark"] .compare-row .topic,
+html[data-theme="dark"] .compare-row .us,
+html[data-theme="dark"] .fact-value,
+html[data-theme="dark"] .bestfor b,
+html[data-theme="dark"] .testimonial blockquote{
+  color:var(--text-1);
+}
+
+/* Rings that were white */
+html[data-theme="dark"] .ceo > div:first-child{
+  box-shadow:0 0 0 6px var(--surface), 0 34px 70px rgba(0,0,0,0.5);
+}
+html[data-theme="dark"] .industry-body .industry-icon{
+  box-shadow:0 0 0 4px var(--surface), 0 10px 24px rgba(0,0,0,0.4);
+}
+html[data-theme="dark"] .about-photo{
+  box-shadow:0 0 0 6px var(--surface), 0 30px 64px rgba(0,0,0,0.5);
+}
+
+/* Colour chips keep their light tint, so their text must stay dark */
+html[data-theme="dark"] .tech-group li{color:#0B1220;}
+html[data-theme="dark"] .tech-group li:hover{color:#fff;}
+html[data-theme="dark"] .filter-btn.active{background:#2563EB;border-color:#2563EB;}
+
+/* Softer shadows on dark */
+html[data-theme="dark"] .info-card,
+html[data-theme="dark"] .work-card,
+html[data-theme="dark"] .contact-form-card{
+  box-shadow:0 2px 14px rgba(0,0,0,0.35);
+}
+
+/* ===== Page transitions ===== */
+html{scroll-padding-top:96px;}
+body{transition:background-color .35s ease, color .35s ease;}
+
+@view-transition{navigation:auto;}
+@keyframes vt-out{to{opacity:0;}}
+@keyframes vt-in{from{opacity:0;transform:translateY(8px);}}
+::view-transition-old(root){animation:vt-out .18s ease both;}
+::view-transition-new(root){animation:vt-in .38s cubic-bezier(.2,.7,.2,1) both;}
+
+/* Browsers without view transitions get a simple fade */
+@keyframes page-fade{from{opacity:0;}}
+@supports not (view-transition-name:none){
+  body{animation:page-fade .4s ease both;}
+}
+@media (prefers-reduced-motion: reduce){
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*){animation-duration:0.01ms !important;}
+}
+
+/* ===== Finer hover motion ===== */
+.btn:active{transform:scale(0.97);}
+.planner-chip:active,
+.filter-btn:active,
+.theme-toggle:active{transform:scale(0.96);}
+
+@media (hover:hover){
+  /* Light sweep across main buttons */
+  .btn-primary,
+  .btn-gold,
+  .btn-whatsapp,
+  .navcta{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .btn-primary:not(:disabled)::after,
+  .btn-gold::after,
+  .btn-whatsapp::after,
+  .navcta::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.38) 50%, transparent 70%);
+    transform:translateX(-120%);
+    transition:transform .7s ease;
+    pointer-events:none;
+  }
+  .btn-primary:not(:disabled):hover::after,
+  .btn-gold:hover::after,
+  .btn-whatsapp:hover::after,
+  .navcta:hover::after{
+    transform:translateX(120%);
+  }
+
+  /* Slow, smooth image zoom on project previews */
+  .showcase-visual img{
+    transition:transform .9s cubic-bezier(.2,.7,.2,1);
+  }
+  .showcase-item:hover .showcase-visual img{
+    transform:scale(1.05);
+  }
+}
+
+/* Coloured edge glow on card hover */
+@supports (color: color-mix(in srgb, red, blue)) {
+  .info-card:hover,
+  .tech-group:hover{
+    box-shadow:
+      0 20px 44px rgba(11,18,32,0.10),
+      0 0 0 1px color-mix(in srgb, var(--c, #2563EB) 35%, transparent);
+  }
+}
