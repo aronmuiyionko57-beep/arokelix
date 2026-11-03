@@ -939,3 +939,18 @@ textarea:focus-visible{
 .section-dark .showcase-body p{color:rgba(255,255,255,0.75);}
 .section-dark .showcase-meta{color:var(--gold);}
 .section-dark .work-link{border-bottom-color:#fff;color:#fff;}
+
+/* ===== Layout fixes ===== */
+
+/* 8 cards: show as 4 x 2 on wide screens (no orphan row) */
+@media (min-width:1100px){
+  .card-grid:has(> :nth-child(8):last-child){grid-template-columns:repeat(4,1fr);}
+}
+
+/* Stats bar: remove the global section padding stacking */
+.stats-bar{padding:0;}
+.stats-row{padding:36px 0;}
+
+/* Leadership: bigger portrait */
+.ceo{grid-template-columns:320px 1fr;gap:56px;}
+@media (max-width:700px){.ceo{grid-template-columns:1fr;}}
