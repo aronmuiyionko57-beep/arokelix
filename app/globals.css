@@ -987,3 +987,80 @@ textarea:focus-visible{
   .process-split{grid-template-columns:1fr;gap:36px;}
   .process-intro{position:static;}
 }
+
+/* ===== AROKELIX colour system v2 ===== */
+:root{
+  --ink:#0B1220;
+  --navy-2:#14307A;
+  --signal:#2563EB;
+  --signal-dim:#1D4ED8;
+  --cyan:#06B6D4;
+  --gold:#FBBF24;
+  --paper-raised:#DBEAFE;
+}
+
+/* Soft gradient on blue sections instead of a flat fill */
+.bg-alt{background:linear-gradient(180deg,#EEF4FF 0%,#DBEAFE 100%);}
+.page-hero,.contact-hero{background:linear-gradient(135deg,#EEF4FF 0%,#DBEAFE 60%,#CFE0FF 100%);}
+
+/* Hero: deeper navy with a blue glow plus the gold glow */
+.hero{background:var(--ink);}
+.hero-photo-bg::after{
+  background:
+    radial-gradient(ellipse 560px 420px at 80% 55%, rgba(251,191,36,0.20), transparent 65%),
+    radial-gradient(ellipse 700px 500px at 0% 100%, rgba(37,99,235,0.35), transparent 60%),
+    linear-gradient(90deg, rgba(11,18,32,0.97) 0%, rgba(11,18,32,0.86) 40%, rgba(11,18,32,0.35) 75%, rgba(11,18,32,0.1) 100%);
+}
+@media (max-width:900px){
+  .hero-photo-bg::after{background:linear-gradient(90deg, rgba(11,18,32,0.97) 0%, rgba(11,18,32,0.9) 60%, rgba(11,18,32,0.6) 100%);}
+}
+
+/* Stats: blue to cyan numbers */
+.stat-item .stat-num{background:linear-gradient(135deg,#2563EB,#06B6D4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+
+/* Cards: four accent colours that cycle, each readable on white */
+.card-grid > :nth-child(4n+1){--c:#2563EB;--c-bg:#DBEAFE;}
+.card-grid > :nth-child(4n+2){--c:#B45309;--c-bg:#FEF3C7;}
+.card-grid > :nth-child(4n+3){--c:#0F766E;--c-bg:#CCFBF1;}
+.card-grid > :nth-child(4n+4){--c:#6D28D9;--c-bg:#EDE9FE;}
+
+.info-card{border-top:3px solid var(--c,transparent);}
+.info-card-icon{background:var(--c-bg,var(--paper-raised));color:var(--c,var(--signal));}
+.info-card-label{color:var(--c,var(--signal-dim));}   /* fixes the unreadable gold labels */
+.info-card-arrow{background:var(--c-bg,var(--paper-raised));color:var(--c,var(--ink));}
+.card-grid > *:hover .info-card-icon{background:var(--c,var(--signal));color:#fff;}
+.card-grid > *:hover .info-card-arrow{background:var(--c,var(--signal));color:#fff;}
+
+/* Dark work section: layered glows */
+.section-dark{
+  background:
+    radial-gradient(900px 500px at 8% 0%, rgba(37,99,235,0.30), transparent 60%),
+    radial-gradient(700px 420px at 100% 100%, rgba(251,191,36,0.10), transparent 60%),
+    var(--ink);
+}
+
+/* Comparison table */
+.compare-head{background:var(--ink);}
+.compare-head .us{background:linear-gradient(135deg,#2563EB,#1D4ED8);}
+.compare-row .us{background:rgba(37,99,235,0.07);}
+
+/* Process */
+.process-item:hover .process-num{background:linear-gradient(135deg,#2563EB,#06B6D4);border-color:transparent;}
+
+/* Primary buttons */
+.btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);}
+.btn-primary:hover{box-shadow:0 12px 28px rgba(37,99,235,0.35);}
+.cta .btn-primary{background:var(--gold);}
+
+/* Final call-to-action band: navy into blue */
+.cta{
+  background:
+    radial-gradient(900px 400px at 85% -10%, rgba(6,182,212,0.28), transparent 60%),
+    linear-gradient(135deg,#0B1220 0%,#14307A 60%,#1E4FD6 120%);
+}
+
+/* Footer: a brand-colour line at the top */
+.footer-main{border-top:3px solid transparent;border-image:linear-gradient(90deg,#2563EB,#06B6D4,#FBBF24) 1;}
+
+/* Showcase frames pick up the brand blue on hover */
+.showcase-item:hover .showcase-visual{box-shadow:0 34px 80px rgba(37,99,235,0.28);}
