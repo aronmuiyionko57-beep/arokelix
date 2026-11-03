@@ -1,5 +1,6 @@
 import { Building2, Workflow, ShoppingBag, Users, Package, BarChart3, CalendarCheck, Globe2, Cog } from "lucide-react";
-import Image from "next/image";
+import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
 
 export const metadata = {
   title: "Solutions | AROKELIX",
@@ -21,21 +22,7 @@ export default function Solutions() {
 
   return (
     <>
-      <a href="#main-content" className="skip-link">Skip to main content</a>
-
-      <header>
-        <div className="wrap nav">
-          <a href="/" className="logo">
-            <Image src="/logo.png" alt="AROKELIX" width={220} height={70} className="logo-img" />
-          </a>
-          <nav className="navlinks">
-            <a href="/">Home</a>
-            <a href="/about">About AROKELIX</a>
-            <a href="/work">Our Work</a>
-          </nav>
-          <a href="/contact" className="navcta">Start a Project</a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section id="main-content" className="hero">
         <div className="wrap">
@@ -55,8 +42,7 @@ export default function Solutions() {
                   <div className="info-card-icon"><Icon size={22} /></div>
                   <div className="info-card-label">{s.label}</div>
                   <div className="info-card-title">{s.name}</div>
-                  <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>{s.desc}</p>
-                  <div className="info-card-arrow">→</div>
+                  <p style={{ color: "var(--text-2)", fontSize: "14px", margin: 0 }}>{s.desc}</p>
                 </div>
               );
             })}
@@ -74,46 +60,7 @@ export default function Solutions() {
         </div>
       </section>
 
-      <footer className="footer-main">
-        <div className="wrap">
-          <div className="footer-grid">
-            <div>
-              <Image src="/logo.png" alt="AROKELIX" width={180} height={57} style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
-              <p className="footer-brand-tagline">Digital Products · Technology · Creative Solutions.</p>
-            </div>
-            <div className="footer-col">
-              <h4>Company</h4>
-              <ul>
-                <li><a href="/about">About</a></li>
-                <li><a href="/solutions">Solutions</a></li>
-                <li><a href="/work">Work</a></li>
-                <li><a href="/contact">Contact</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Services</h4>
-              <ul>
-                <li><a href="/#services">Websites</a></li>
-                <li><a href="/#services">Software</a></li>
-                <li><a href="/#services">E-commerce</a></li>
-                <li><a href="/#services">Branding</a></li>
-                <li><a href="/#services">Digital Marketing</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Contact</h4>
-              <ul>
-                <li><a href="mailto:aronmuiyionko57@gmail.com">aronmuiyionko57@gmail.com</a></li>
-                <li><a href="tel:+254706519789">+254 706 519 789</a></li>
-                <li>Remote — worldwide</li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            © {new Date().getFullYear()} AROKELIX. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const links = [
@@ -8,11 +9,15 @@ const links = [
   { href: "/solutions", label: "Solutions" },
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
+  { href: "/lab", label: "Lab" },
   { href: "/contact", label: "Contact" },
 ];
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname() ?? "";
+
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
 
   return (
     <>
@@ -24,7 +29,9 @@ export default function SiteHeader() {
           </a>
           <nav className="navlinks" aria-label="Main">
             {links.map((l) => (
-              <a key={l.href} href={l.href}>{l.label}</a>
+              <a key={l.href} href={l.href} aria-current={isActive(l.href) ? "page" : undefined}>
+                {l.label}
+              </a>
             ))}
           </nav>
           <a href="/contact" className="navcta">Start a Project</a>
@@ -40,7 +47,14 @@ export default function SiteHeader() {
         {open && (
           <div className="mobile-menu">
             {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
+              <a
+                key={l.href}
+                href={l.href}
+                aria-current={isActive(l.href) ? "page" : undefined}
+                onClick={() => setOpen(false)}
+              >
+                {l.label}
+              </a>
             ))}
             <a href="/contact" onClick={() => setOpen(false)}>Start a Project</a>
           </div>

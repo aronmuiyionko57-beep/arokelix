@@ -10,6 +10,8 @@ import {
   SiGit, SiGithub, SiDocker,
 } from "react-icons/si";
 import { services } from "./services/data";
+import SiteHeader from "./components/SiteHeader";
+import SiteFooter from "./components/SiteFooter";
 
 function Reveal({ children }: { children: React.ReactNode }) {
   const ref = useRef(null);
@@ -89,50 +91,9 @@ function BackToTop() {
 }
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <>
-      <a href="#main-content" className="skip-link">Skip to main content</a>
-
-      <header>
-        <div className="wrap nav">
-          <a href="/" className="logo">
-            <Image src="/logo.png" alt="AROKELIX" width={220} height={70} className="logo-img" priority />
-          </a>
-          <nav className="navlinks">
-            <a href="/about">About AROKELIX</a>
-            <a href="/solutions">Solutions</a>
-            <a href="/lab">Lab</a>
-            <a href="#services">Services</a>
-            <a href="/work">Our Work</a>
-            <a href="#process">Process</a>
-            <a href="#technology">Technology</a>
-            <a href="#ceo">About the CEO</a>
-          </nav>
-          <a href="/contact" className="navcta">Start a Project</a>
-          <button
-            className="navmobile-btn"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? "✕" : "☰"}
-          </button>
-        </div>
-        {menuOpen && (
-          <div className="mobile-menu">
-            <a href="/about" onClick={() => setMenuOpen(false)}>About AROKELIX</a>
-            <a href="/solutions" onClick={() => setMenuOpen(false)}>Solutions</a>
-            <a href="/lab" onClick={() => setMenuOpen(false)}>Lab</a>
-            <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-            <a href="/work" onClick={() => setMenuOpen(false)}>Our Work</a>
-            <a href="#process" onClick={() => setMenuOpen(false)}>Process</a>
-            <a href="#technology" onClick={() => setMenuOpen(false)}>Technology</a>
-            <a href="#ceo" onClick={() => setMenuOpen(false)}>About the CEO</a>
-            <a href="/contact" onClick={() => setMenuOpen(false)}>Start a Project</a>
-          </div>
-        )}
-      </header>
+      <SiteHeader />
 
       <section id="main-content" className="hero">
         <div className="hero-photo-bg">
@@ -148,7 +109,7 @@ export default function Home() {
             digital systems that help businesses grow — locally and globally.
           </p>
           <div className="hero-photo-actions">
-            <a href="#services" className="btn btn-gold">Our Services <ArrowRight size={16} /></a>
+            <a href="/services" className="btn btn-gold">Our Services <ArrowRight size={16} /></a>
             <a href="/work" className="btn btn-outline-light">View Our Work <ArrowRight size={16} /></a>
           </div>
           <div className="hero-proof-row">
@@ -407,47 +368,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="footer-main">
-        <div className="wrap">
-          <div className="footer-grid">
-            <div>
-              <Image src="/logo.png" alt="AROKELIX" width={180} height={57} style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
-              <p className="footer-brand-tagline">Digital Products · Technology · Creative Solutions.</p>
-            </div>
-            <div className="footer-col">
-              <h4>Company</h4>
-              <ul>
-                <li><a href="/about">About</a></li>
-                <li><a href="/solutions">Solutions</a></li>
-                <li><a href="/work">Work</a></li>
-                <li><a href="/contact">Contact</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Services</h4>
-              <ul>
-                <li><a href="/services/websites-web-applications">Websites</a></li>
-                <li><a href="/services/custom-software">Software</a></li>
-                <li><a href="/services/e-commerce">E-commerce</a></li>
-                <li><a href="/services/branding-creative">Branding</a></li>
-                <li><a href="/services/digital-marketing">Digital Marketing</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Contact</h4>
-              <ul>
-                <li><a href="mailto:aronmuiyionko57@gmail.com">aronmuiyionko57@gmail.com</a></li>
-                <li><a href="tel:+254706519789">+254 706 519 789</a></li>
-                <li>Remote — worldwide</li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            © {new Date().getFullYear()} AROKELIX. All rights reserved.
-          </div>
-        </div>
-      </footer>
-
+      <SiteFooter />
       <BackToTop />
     </>
   );

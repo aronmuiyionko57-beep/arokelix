@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Mail, Phone, Globe as GlobeIcon } from "lucide-react";
+import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
 
 const services = [
   "Website", "Software", "E-commerce", "Mobile App",
@@ -57,21 +59,7 @@ export default function Contact() {
 
   return (
     <>
-      <a href="#main-content" className="skip-link">Skip to main content</a>
-
-      <header>
-        <div className="wrap nav">
-          <a href="/" className="logo">
-            <Image src="/logo.png" alt="AROKELIX" width={220} height={70} className="logo-img" />
-          </a>
-          <nav className="navlinks">
-            <a href="/">Home</a>
-            <a href="/about">About AROKELIX</a>
-            <a href="/work">Our Work</a>
-          </nav>
-          <a href="/contact" className="navcta">Start a Project</a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section id="main-content" className="contact-hero">
         <div className="wrap contact-hero-grid">
@@ -133,30 +121,30 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <div>
-                  <label style={labelStyle}>Full name *</label>
-                  <input name="name" required value={form.name} onChange={handleChange} style={fieldStyle} placeholder="Your full name" />
+                  <label htmlFor="name" style={labelStyle}>Full name *</label>
+                  <input id="name" name="name" required value={form.name} onChange={handleChange} style={fieldStyle} placeholder="Your full name" />
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "18px" }}>
                   <div>
-                    <label style={labelStyle}>Business / Organization</label>
-                    <input name="company" value={form.company} onChange={handleChange} style={fieldStyle} placeholder="Your business or organization" />
+                    <label htmlFor="company" style={labelStyle}>Business / Organization</label>
+                    <input id="company" name="company" value={form.company} onChange={handleChange} style={fieldStyle} placeholder="Your business or organization" />
                   </div>
                   <div>
-                    <label style={labelStyle}>Email *</label>
-                    <input name="email" type="email" required value={form.email} onChange={handleChange} style={fieldStyle} placeholder="you@company.com" />
+                    <label htmlFor="email" style={labelStyle}>Email *</label>
+                    <input id="email" name="email" type="email" required value={form.email} onChange={handleChange} style={fieldStyle} placeholder="you@company.com" />
                   </div>
                 </div>
 
                 <div>
-                  <label style={labelStyle}>Phone / WhatsApp</label>
-                  <input name="phone" value={form.phone} onChange={handleChange} style={fieldStyle} placeholder="+254 700 000 000" />
+                  <label htmlFor="phone" style={labelStyle}>Phone / WhatsApp</label>
+                  <input id="phone" name="phone" value={form.phone} onChange={handleChange} style={fieldStyle} placeholder="+254 700 000 000" />
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "18px" }}>
                   <div>
-                    <label style={labelStyle}>What do you need? *</label>
-                    <select name="service" required value={form.service} onChange={handleChange} style={fieldStyle}>
+                    <label htmlFor="service" style={labelStyle}>What do you need? *</label>
+                    <select id="service" name="service" required value={form.service} onChange={handleChange} style={fieldStyle}>
                       <option value="">Select one</option>
                       {services.map((s) => (
                         <option key={s} value={s}>{s}</option>
@@ -164,14 +152,14 @@ export default function Contact() {
                     </select>
                   </div>
                   <div>
-                    <label style={labelStyle}>Estimated budget</label>
-                    <input name="budget" placeholder="e.g. $500 – $2,000" value={form.budget} onChange={handleChange} style={fieldStyle} />
+                    <label htmlFor="budget" style={labelStyle}>Estimated budget</label>
+                    <input id="budget" name="budget" placeholder="e.g. $500 – $2,000" value={form.budget} onChange={handleChange} style={fieldStyle} />
                   </div>
                 </div>
 
                 <div>
-                  <label style={labelStyle}>Project description *</label>
-                  <textarea name="message" required rows={5} value={form.message} onChange={handleChange} style={fieldStyle} placeholder="Tell us about your project, goals and any specific requirements..." />
+                  <label htmlFor="message" style={labelStyle}>Project description *</label>
+                  <textarea id="message" name="message" required rows={5} value={form.message} onChange={handleChange} style={fieldStyle} placeholder="Tell us about your project, goals and any specific requirements..." />
                 </div>
 
                 <button type="submit" className="btn btn-primary" style={{ padding: "15px 24px", fontSize: "16px" }} disabled={status === "sending"}>
@@ -184,46 +172,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <footer className="footer-main">
-        <div className="wrap">
-          <div className="footer-grid">
-            <div>
-              <Image src="/logo.png" alt="AROKELIX" width={225} height={71} style={{ height: "72px", width: "auto", mixBlendMode: "multiply" }} />
-              <p className="footer-brand-tagline">Digital Products · Technology · Creative Solutions.</p>
-            </div>
-            <div className="footer-col">
-              <h4>Company</h4>
-              <ul>
-                <li><a href="/about">About</a></li>
-                <li><a href="/solutions">Solutions</a></li>
-                <li><a href="/work">Work</a></li>
-                <li><a href="/contact">Contact</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Services</h4>
-              <ul>
-                <li><a href="/#services">Websites</a></li>
-                <li><a href="/#services">Software</a></li>
-                <li><a href="/#services">E-commerce</a></li>
-                <li><a href="/#services">Branding</a></li>
-                <li><a href="/#services">Digital Marketing</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Contact</h4>
-              <ul>
-                <li><a href="mailto:aronmuiyionko57@gmail.com">aronmuiyionko57@gmail.com</a></li>
-                <li><a href="tel:+254706519789">+254 706 519 789</a></li>
-                <li>Remote — worldwide</li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            © {new Date().getFullYear()} AROKELIX. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

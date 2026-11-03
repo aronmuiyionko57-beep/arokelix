@@ -724,3 +724,7 @@ textarea:focus-visible{
 .check-list svg{flex-shrink:0;color:var(--signal);margin-top:3px;}
 .bestfor{margin-top:44px;padding:22px 24px;background:var(--surface);border:1px solid var(--line);border-radius:12px;font-size:15px;color:var(--text-2);}
 .bestfor b{color:var(--ink);}
+
+.navlinks a[aria-current="page"]{color:var(--ink);font-weight:600;}
+.mobile-menu a[aria-current="page"]{color:var(--signal);font-weight:600;}
+.nf-code{font-family:"Space Grotesk",sans-serif;font-size:clamp(72px,14vw,140px);font-weight:700;color:var(--signal);line-height:1;margin-bottom:12px;}
