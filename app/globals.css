@@ -1757,3 +1757,36 @@ section.banner-wrap,
   overflow:hidden;
   box-shadow:0 0 0 6px #fff, 0 30px 64px rgba(11,18,32,0.20);
 }
+
+/* ===== Insights / articles ===== */
+.article-meta{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;
+  letter-spacing:0.06em;
+  color:var(--text-2);
+  margin:0 0 16px;
+}
+.article-hero-meta{
+  margin-top:20px;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12.5px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.62);
+}
+.article{
+  max-width:720px;
+  margin:0 auto;
+}
+.article h2{
+  font-size:clamp(22px,2.6vw,28px);
+  margin:44px 0 14px;
+}
+.article > div:first-child h2{margin-top:0;}
+.article p{
+  font-size:17.5px;
+  line-height:1.8;
+  color:var(--text-1);
+  margin:0 0 18px;
+}
+.article p:first-of-type{color:var(--text-1);}

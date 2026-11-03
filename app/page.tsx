@@ -23,6 +23,7 @@ import ProjectPlanner from "./components/ProjectPlanner";
 import Industries from "./components/Industries";
 import Commitments from "./components/Commitments";
 import Testimonials from "./components/Testimonials";
+import LatestInsights from "./components/LatestInsights";
 
 const processSteps = [
   { n: "01", icon: Search, title: "Discover", text: "Understand your objectives, constraints and requirements." },
