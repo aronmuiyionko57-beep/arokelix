@@ -1601,3 +1601,83 @@ textarea:focus-visible{
 }
 .industry-link svg{transition:transform .25s ease;}
 .industry-card:hover .industry-link svg{transform:translateX(5px);}
+
+/* ===== Announcement bar ===== */
+.announce{
+  position:relative;
+  z-index:55;
+  background:linear-gradient(90deg,#0B1220,#14307A);
+  color:#fff;
+  font-size:13.5px;
+}
+.announce-inner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding-top:9px;
+  padding-bottom:9px;
+  padding-right:48px;
+  position:relative;
+}
+.announce-inner p{margin:0;color:rgba(255,255,255,0.9);}
+.announce-dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:#22C55E;
+  box-shadow:0 0 0 4px rgba(34,197,94,0.25);
+  flex-shrink:0;
+}
+.announce-link{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  font-weight:600;
+  color:var(--gold);
+  white-space:nowrap;
+}
+.announce-link:hover{text-decoration:underline;}
+.announce-close{
+  position:absolute;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;height:32px;
+  border:0;
+  border-radius:8px;
+  background:transparent;
+  color:rgba(255,255,255,0.7);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.announce-close:hover{background:rgba(255,255,255,0.12);color:#fff;}
+@media (max-width:700px){
+  .announce-inner{justify-content:flex-start;padding-left:20px;flex-wrap:wrap;gap:4px 10px;}
+  .announce-inner p{font-size:12.5px;flex:1 1 70%;}
+}
+
+/* ===== Testimonials ===== */
+.testimonial-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+.testimonial{
+  margin:0;
+  background:#fff;
+  border:1px solid var(--line);
+  border-top:3px solid var(--gold);
+  border-radius:20px;
+  padding:30px 28px;
+  box-shadow:0 10px 30px rgba(11,18,32,0.07);
+}
+.testimonial-mark{color:var(--signal);margin-bottom:14px;}
+.testimonial blockquote{
+  margin:0 0 22px;
+  font-size:17.5px;
+  line-height:1.6;
+  color:var(--ink);
+}
+.testimonial figcaption{display:flex;flex-direction:column;gap:2px;}
+.testimonial figcaption b{font-size:15.5px;}
+.testimonial figcaption span{font-size:13.5px;color:var(--text-2);}

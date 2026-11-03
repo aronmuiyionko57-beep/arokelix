@@ -12,6 +12,7 @@ import "./globals.css";
 import { SITE_URL, SITE_NAME, SITE_EMAIL, SITE_PHONE, SITE_DESCRIPTION } from "./lib/site";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import ScrollProgress from "./components/ScrollProgress";
+import AnnouncementBar from "./components/AnnouncementBar";
 
 const TITLE = "AROKELIX | Technology, Software & Digital Solutions";
 
@@ -57,7 +58,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ScrollProgress />
-        {children}
+<AnnouncementBar />
+{children}
         <FloatingWhatsApp />
       </body>
     </html>
