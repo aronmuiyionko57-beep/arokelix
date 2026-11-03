@@ -19,6 +19,7 @@ import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import FAQ from "./components/FAQ";
 import Engagements from "./components/Engagements";
+import ProjectPlanner from "./components/ProjectPlanner";
 
 const processSteps = [
   { n: "01", icon: Search, title: "Discover", text: "Understand your objectives, constraints and requirements." },
