@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Mail, Phone, Globe as GlobeIcon } from "lucide-react";
 
 const services = [
@@ -56,10 +57,12 @@ export default function Contact() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
       <header>
         <div className="wrap nav">
           <a href="/" className="logo">
-            <img src="/logo.png" alt="AROKELIX" className="logo-img" />
+            <Image src="/logo.png" alt="AROKELIX" width={220} height={70} className="logo-img" />
           </a>
           <nav className="navlinks">
             <a href="/">Home</a>
@@ -70,7 +73,7 @@ export default function Contact() {
         </div>
       </header>
 
-      <section className="contact-hero">
+      <section id="main-content" className="contact-hero">
         <div className="wrap contact-hero-grid">
           <div className="contact-hero-text">
             <div className="hero-kicker">Start a Project</div>
@@ -81,8 +84,8 @@ export default function Contact() {
               efficiently and built for long-term growth.
             </p>
           </div>
-          <div className="contact-hero-photo">
-            <img src="/contact-photo.jpg" alt="AROKELIX workspace" />
+          <div className="contact-hero-photo" style={{ position: "relative" }}>
+            <Image src="/contact-photo.jpg" alt="AROKELIX workspace" fill style={{ objectFit: "cover", borderRadius: "16px" }} priority />
           </div>
         </div>
       </section>
@@ -185,7 +188,7 @@ export default function Contact() {
         <div className="wrap">
           <div className="footer-grid">
             <div>
-              <img src="/logo.png" alt="AROKELIX" style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
+              <Image src="/logo.png" alt="AROKELIX" width={225} height={71} style={{ height: "72px", width: "auto", mixBlendMode: "multiply" }} />
               <p className="footer-brand-tagline">Digital Products · Technology · Creative Solutions.</p>
             </div>
             <div className="footer-col">

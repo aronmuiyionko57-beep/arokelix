@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const projects = [
   {
@@ -34,7 +35,7 @@ export default function Work() {
       <header>
         <div className="wrap nav">
           <a href="/" className="logo">
-            <img src="/logo.png" alt="AROKELIX" className="logo-img" />
+            <Image src="/logo.png" alt="AROKELIX" width={220} height={70} className="logo-img" />
           </a>
           <nav className="navlinks">
             <a href="/">Home</a>
@@ -71,11 +72,9 @@ export default function Work() {
           <div className="work-grid">
             {visible.map((p) => (
               <div className="work-card" key={p.name}>
-                <div
-                  className="work-visual"
-                  aria-hidden="true"
-                  style={{ backgroundImage: `url(${p.image})`, backgroundSize: "cover", backgroundPosition: "top" }}
-                ></div>
+                <div className="work-visual" aria-hidden="true">
+                  <Image src={p.image} alt="" fill style={{ objectFit: "cover", objectPosition: "top" }} />
+                </div>
                 <div className="work-meta">{p.industry.toUpperCase()} — {p.category.toUpperCase()}</div>
                 <h3>{p.name}</h3>
                 <p>{p.desc}</p>
@@ -93,7 +92,7 @@ export default function Work() {
         <div className="wrap">
           <div className="footer-grid">
             <div>
-              <img src="/logo.png" alt="AROKELIX" style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
+              <Image src="/logo.png" alt="AROKELIX" width={180} height={57} style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
               <p className="footer-brand-tagline">Digital Products · Technology · Creative Solutions.</p>
             </div>
             <div className="footer-col">

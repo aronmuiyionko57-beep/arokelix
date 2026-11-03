@@ -1,13 +1,15 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Globe, Code2, Smartphone, ShoppingCart, Palette, Settings, ArrowRight, ChevronUp, ShieldCheck, Lightbulb, TrendingUp, Users } from "lucide-react";
+import Image from "next/image";
+import { Globe, Code2, ArrowRight, ChevronUp, ShieldCheck, Lightbulb, TrendingUp, Users } from "lucide-react";
 import {
   SiReact, SiNextdotjs, SiJavascript, SiHtml5,
   SiNodedotjs, SiPython,
   SiPostgresql, SiMysql, SiMongodb,
   SiGit, SiGithub, SiDocker,
 } from "react-icons/si";
+import { services } from "./services/data";
 
 function Reveal({ children }: { children: React.ReactNode }) {
   const ref = useRef(null);
@@ -96,7 +98,7 @@ export default function Home() {
       <header>
         <div className="wrap nav">
           <a href="/" className="logo">
-            <img src="/logo.png" alt="AROKELIX" className="logo-img" />
+            <Image src="/logo.png" alt="AROKELIX" width={220} height={70} className="logo-img" priority />
           </a>
           <nav className="navlinks">
             <a href="/about">About AROKELIX</a>
@@ -134,7 +136,7 @@ export default function Home() {
 
       <section id="main-content" className="hero">
         <div className="hero-photo-bg">
-          <img src="/hero-photo.jpg" alt="AROKELIX technology professional at work" />
+          <Image src="/hero-photo.jpg" alt="AROKELIX technology professional at work" fill priority style={{ objectFit: "cover", objectPosition: "85% 30%" }} />
         </div>
         <div className="wrap hero-content">
           <div className="hero-eyebrow">Welcome to AROKELIX</div>
@@ -197,62 +199,23 @@ export default function Home() {
               <p>Software and creative work, delivered as one connected engagement rather than separate vendors.</p>
             </div>
             <div className="card-grid">
-              <div className="info-card">
-                <div className="info-card-icon"><Globe size={22} /></div>
-                <div className="info-card-label">Web</div>
-                <div className="info-card-title">Websites & Web Applications</div>
-                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Corporate websites, landing pages, portals and custom web applications designed around business goals.</p>
-                <div className="info-card-arrow"><ArrowRight size={16} /></div>
-              </div>
-              <div className="info-card">
-                <div className="info-card-icon"><Code2 size={22} /></div>
-                <div className="info-card-label">Software</div>
-                <div className="info-card-title">Custom Software</div>
-                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Business software and internal systems built around specific operational requirements.</p>
-                <div className="info-card-arrow"><ArrowRight size={16} /></div>
-              </div>
-              <div className="info-card">
-                <div className="info-card-icon"><ShoppingCart size={22} /></div>
-                <div className="info-card-label">Retail</div>
-                <div className="info-card-title">E-commerce</div>
-                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Online stores and commerce systems designed for sales, payments and growth.</p>
-                <div className="info-card-arrow"><ArrowRight size={16} /></div>
-              </div>
-              <div className="info-card">
-                <div className="info-card-icon"><Smartphone size={22} /></div>
-                <div className="info-card-label">Mobile</div>
-                <div className="info-card-title">Mobile Applications</div>
-                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Modern mobile applications designed for customers, teams and business operations.</p>
-                <div className="info-card-arrow"><ArrowRight size={16} /></div>
-              </div>
-              <div className="info-card">
-                <div className="info-card-icon"><Palette size={22} /></div>
-                <div className="info-card-label">Creative</div>
-                <div className="info-card-title">Branding & Creative</div>
-                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Brand identities, visual systems and digital creative assets.</p>
-                <div className="info-card-arrow"><ArrowRight size={16} /></div>
-              </div>
-              <div className="info-card">
-                <div className="info-card-icon"><TrendingUp size={22} /></div>
-                <div className="info-card-label">Growth</div>
-                <div className="info-card-title">Digital Marketing</div>
-                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Digital campaigns, content systems, SEO and online growth solutions.</p>
-                <div className="info-card-arrow"><ArrowRight size={16} /></div>
-              </div>
-              <div className="info-card">
-                <div className="info-card-icon"><Settings size={22} /></div>
-                <div className="info-card-label">Automation</div>
-                <div className="info-card-title">Automation & Business Systems</div>
-                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Digital workflows and automation that improve efficiency and reduce repetitive work.</p>
-                <div className="info-card-arrow"><ArrowRight size={16} /></div>
-              </div>
-              <div className="info-card">
-                <div className="info-card-icon"><Lightbulb size={22} /></div>
-                <div className="info-card-label">Strategy</div>
-                <div className="info-card-title">IT / Digital Consulting</div>
-                <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>Technology strategy and digital transformation support for businesses.</p>
-                <div className="info-card-arrow"><ArrowRight size={16} /></div>
-              </div>
+              {services.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <a key={s.slug} href={`/services/${s.slug}`} className="info-card-link">
+                    <div className="info-card">
+                      <div className="info-card-icon"><Icon size={22} /></div>
+                      <div className="info-card-label">{s.label}</div>
+                      <div className="info-card-title">{s.title}</div>
+                      <p style={{ color: "var(--text-2)", fontSize: "14px", margin: "0 0 16px" }}>{s.tagline}</p>
+                      <div className="info-card-arrow"><ArrowRight size={16} /></div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+            <div style={{ marginTop: "32px" }}>
+              <a href="/services" className="work-link">View all services →</a>
             </div>
           </div>
         </Reveal>
@@ -269,22 +232,18 @@ export default function Home() {
           <div className="wrap" style={{ padding: 0 }}>
             <div className="work-grid">
               <div className="work-card">
-                <div
-                  className="work-visual"
-                  aria-hidden="true"
-                  style={{ backgroundImage: "url(/gmjr-screenshot.png)", backgroundSize: "cover", backgroundPosition: "top" }}
-                ></div>
+                <div className="work-visual" aria-hidden="true">
+                  <Image src="/gmjr-screenshot.png" alt="" fill style={{ objectFit: "cover", objectPosition: "top" }} />
+                </div>
                 <div className="work-meta">MINING — WEBSITE</div>
                 <h3>GMJR Critical Minerals Mozambique</h3>
                 <p>A corporate website for a Mozambican critical-minerals exploration and development company.</p>
                 <a href="/work/gmjr" className="work-link">View case study →</a>
               </div>
               <div className="work-card">
-                <div
-                  className="work-visual"
-                  aria-hidden="true"
-                  style={{ backgroundImage: "url(/tenseiark-screenshot.png)", backgroundSize: "cover", backgroundPosition: "top" }}
-                ></div>
+                <div className="work-visual" aria-hidden="true">
+                  <Image src="/tenseiark-screenshot.png" alt="" fill style={{ objectFit: "cover", objectPosition: "top" }} />
+                </div>
                 <div className="work-meta">RETAIL — E-COMMERCE</div>
                 <h3>Tensei Ark</h3>
                 <p>A full electronics storefront with cart, wishlist, comparison and multi-currency support.</p>
@@ -422,7 +381,9 @@ export default function Home() {
               <p></p>
             </div>
             <div className="ceo">
-              <img src="/aron-photo.jpg" alt="Aron Muiyionko, CEO & Founder of AROKELIX" className="ceo-photo" />
+              <div style={{ position: "relative", width: "100%", aspectRatio: "4/5", borderRadius: "4px", overflow: "hidden" }}>
+                <Image src="/aron-photo.jpg" alt="Aron Muiyionko, CEO & Founder of AROKELIX" fill style={{ objectFit: "cover" }} />
+              </div>
               <div>
                 <h3>Aron Muiyionko</h3>
                 <div className="role">CEO & Founder, AROKELIX</div>
@@ -450,7 +411,7 @@ export default function Home() {
         <div className="wrap">
           <div className="footer-grid">
             <div>
-              <img src="/logo.png" alt="AROKELIX" style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
+              <Image src="/logo.png" alt="AROKELIX" width={180} height={57} style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
               <p className="footer-brand-tagline">Digital Products · Technology · Creative Solutions.</p>
             </div>
             <div className="footer-col">
@@ -465,11 +426,11 @@ export default function Home() {
             <div className="footer-col">
               <h4>Services</h4>
               <ul>
-                <li><a href="/#services">Websites</a></li>
-                <li><a href="/#services">Software</a></li>
-                <li><a href="/#services">E-commerce</a></li>
-                <li><a href="/#services">Branding</a></li>
-                <li><a href="/#services">Digital Marketing</a></li>
+                <li><a href="/services/websites-web-applications">Websites</a></li>
+                <li><a href="/services/custom-software">Software</a></li>
+                <li><a href="/services/e-commerce">E-commerce</a></li>
+                <li><a href="/services/branding-creative">Branding</a></li>
+                <li><a href="/services/digital-marketing">Digital Marketing</a></li>
               </ul>
             </div>
             <div className="footer-col">

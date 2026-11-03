@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const metadata = {
   title: "Tensei Ark — Case Study | AROKELIX",
   description: "How AROKELIX built a full e-commerce storefront for a Nairobi-based electronics retailer.",
@@ -6,10 +8,12 @@ export const metadata = {
 export default function TenseiArkCaseStudy() {
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
       <header>
         <div className="wrap nav">
           <a href="/" className="logo">
-            <img src="/logo.png" alt="AROKELIX" className="logo-img" />
+            <Image src="/logo.png" alt="AROKELIX" width={220} height={70} className="logo-img" />
           </a>
           <nav className="navlinks">
             <a href="/">Home</a>
@@ -19,7 +23,7 @@ export default function TenseiArkCaseStudy() {
         </div>
       </header>
 
-      <section className="hero">
+      <section id="main-content" className="hero">
         <div className="wrap">
           <div className="hero-kicker">Case Study — Retail / E-commerce</div>
           <h1 style={{ maxWidth: "650px" }}>Tensei Ark</h1>
@@ -33,10 +37,12 @@ export default function TenseiArkCaseStudy() {
 
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
-          <img
+          <Image
             src="/tenseiark-screenshot.png"
             alt="Tensei Ark online store screenshot"
-            style={{ width: "100%", borderRadius: "8px", border: "1px solid var(--line)" }}
+            width={1600}
+            height={900}
+            style={{ width: "100%", height: "auto", borderRadius: "8px", border: "1px solid var(--line)" }}
           />
         </div>
       </section>
@@ -80,7 +86,7 @@ export default function TenseiArkCaseStudy() {
         <div className="wrap">
           <div className="footer-grid">
             <div>
-              <img src="/logo.png" alt="AROKELIX" style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
+              <Image src="/logo.png" alt="AROKELIX" width={180} height={57} style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
               <p className="footer-brand-tagline">Digital Products · Technology · Creative Solutions.</p>
             </div>
             <div className="footer-col">

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const metadata = {
   title: "AROKELIX Lab | Experiments & Emerging Technology",
   description: "New technology, AI experiments and internal tools AROKELIX is building and testing.",
@@ -6,10 +8,12 @@ export const metadata = {
 export default function Lab() {
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
       <header>
         <div className="wrap nav">
           <a href="/" className="logo">
-            <img src="/logo.png" alt="AROKELIX" className="logo-img" />
+            <Image src="/logo.png" alt="AROKELIX" width={220} height={70} className="logo-img" />
           </a>
           <nav className="navlinks">
             <a href="/">Home</a>
@@ -20,7 +24,7 @@ export default function Lab() {
         </div>
       </header>
 
-      <section className="hero">
+      <section id="main-content" className="hero">
         <div className="wrap">
           <div className="hero-kicker">AROKELIX Lab</div>
           <h1 style={{ maxWidth: "650px" }}>Where we experiment before we ship.</h1>
@@ -48,7 +52,7 @@ export default function Lab() {
         <div className="wrap">
           <div className="footer-grid">
             <div>
-              <img src="/logo.png" alt="AROKELIX" style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
+              <Image src="/logo.png" alt="AROKELIX" width={180} height={57} style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
               <p className="footer-brand-tagline">Digital Products · Technology · Creative Solutions.</p>
             </div>
             <div className="footer-col">

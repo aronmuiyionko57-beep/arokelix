@@ -1,4 +1,5 @@
 import { Building2, Workflow, ShoppingBag, Users, Package, BarChart3, CalendarCheck, Globe2, Cog } from "lucide-react";
+import Image from "next/image";
 
 export const metadata = {
   title: "Solutions | AROKELIX",
@@ -20,10 +21,12 @@ export default function Solutions() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
       <header>
         <div className="wrap nav">
           <a href="/" className="logo">
-            <img src="/logo.png" alt="AROKELIX" className="logo-img" />
+            <Image src="/logo.png" alt="AROKELIX" width={220} height={70} className="logo-img" />
           </a>
           <nav className="navlinks">
             <a href="/">Home</a>
@@ -34,7 +37,7 @@ export default function Solutions() {
         </div>
       </header>
 
-      <section className="hero">
+      <section id="main-content" className="hero">
         <div className="wrap">
           <div className="hero-kicker">Solutions</div>
           <h1 style={{ maxWidth: "650px" }}>We solve business problems, not just build software.</h1>
@@ -75,7 +78,7 @@ export default function Solutions() {
         <div className="wrap">
           <div className="footer-grid">
             <div>
-              <img src="/logo.png" alt="AROKELIX" style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
+              <Image src="/logo.png" alt="AROKELIX" width={180} height={57} style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
               <p className="footer-brand-tagline">Digital Products · Technology · Creative Solutions.</p>
             </div>
             <div className="footer-col">
