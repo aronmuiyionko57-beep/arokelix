@@ -199,6 +199,15 @@ export default function Home() {
             <div className="work-grid">
               <div className="work-card">
                 <div className="work-visual" aria-hidden="true">
+                  <Image src="/okoa-screenshot.png" alt="" fill style={{ objectFit: "cover", objectPosition: "top" }} />
+                </div>
+                <div className="work-meta">FURNITURE — E-COMMERCE</div>
+                <h3>OKOA Furniture</h3>
+                <p>An online furniture store with a 270+ piece catalogue, shop-by-room browsing and ordering through WhatsApp.</p>
+                <a href="/work/okoa" className="work-link">View case study →</a>
+              </div>
+              <div className="work-card">
+                <div className="work-visual" aria-hidden="true">
                   <Image src="/tenseiark-screenshot.png" alt="" fill style={{ objectFit: "cover", objectPosition: "top" }} />
                 </div>
                 <div className="work-meta">RETAIL — E-COMMERCE</div>

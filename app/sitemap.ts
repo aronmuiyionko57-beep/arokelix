@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { url: `${base}/lab`, lastModified: new Date(), priority: 0.5 },
     { url: `${base}/work`, lastModified: new Date(), priority: 0.9 },
+    { url: `${base}/work/okoa`, lastModified: new Date(), priority: 0.7 },
     { url: `${base}/work/tenseiark`, lastModified: new Date(), priority: 0.7 },
     { url: `${base}/contact`, lastModified: new Date(), priority: 0.9 },
   ];

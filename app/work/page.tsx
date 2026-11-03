@@ -7,6 +7,14 @@ import SiteFooter from "../components/SiteFooter";
 
 const projects = [
   {
+    name: "OKOA Furniture",
+    category: "E-commerce",
+    industry: "Furniture",
+    desc: "An online furniture store with a 270+ piece catalogue, shop-by-room browsing, offer filters and ordering through WhatsApp.",
+    image: "/okoa-screenshot.png",
+    caseStudy: "/work/okoa",
+  },
+  {
     name: "Tensei Ark",
     category: "E-commerce",
     industry: "Retail",
