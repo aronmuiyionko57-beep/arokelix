@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Mail, Phone, Globe as GlobeIcon } from "lucide-react";
+import { Mail, Phone, Globe as GlobeIcon, MessageCircle } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import { SITE_EMAIL, SITE_PHONE, WHATSAPP_URL } from "../lib/site";
 
 const services = [
   "Website", "Software", "E-commerce", "Mobile App",
@@ -25,15 +26,19 @@ export default function Contact() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-    if (res.ok) {
-      setStatus("sent");
-      setForm({ name: "", company: "", email: "", phone: "", service: "", budget: "", message: "" });
-    } else {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        setForm({ name: "", company: "", email: "", phone: "", service: "", budget: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
       setStatus("error");
     }
   }
@@ -93,7 +98,7 @@ export default function Contact() {
               <div className="contact-icon"><Mail size={20} /></div>
               <div>
                 <b>Email Us</b>
-                <div>aronmuiyionko57@gmail.com</div>
+                <div><a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a></div>
                 <span>We typically respond within 1 business day.</span>
               </div>
             </div>
@@ -102,7 +107,16 @@ export default function Contact() {
               <div className="contact-icon"><Phone size={20} /></div>
               <div>
                 <b>Call / WhatsApp</b>
-                <div>+254 706 519 789</div>
+                <div><a href={`tel:${SITE_PHONE}`}>+254 706 519 789</a></div>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                  style={{ marginTop: "12px", display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <MessageCircle size={16} /> Chat on WhatsApp
+                </a>
               </div>
             </div>
 
@@ -165,7 +179,11 @@ export default function Contact() {
                 <button type="submit" className="btn btn-primary" style={{ padding: "15px 24px", fontSize: "16px" }} disabled={status === "sending"}>
                   {status === "sending" ? "Sending…" : "Send Project Enquiry"}
                 </button>
-                {status === "error" && <p style={{ color: "crimson" }}>Something went wrong — try again.</p>}
+                {status === "error" && (
+                  <p role="alert" style={{ color: "crimson" }}>
+                    Something went wrong — try again, or message us on WhatsApp.
+                  </p>
+                )}
               </form>
             )}
           </div>
