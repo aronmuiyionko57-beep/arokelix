@@ -57,6 +57,21 @@ export default function Work() {
         </div>
       </section>
 
+      <section className="banner-wrap">
+        <div className="wrap">
+          <div className="photo-banner">
+            <Image
+              src="/pages/work.jpg"
+              alt=""
+              fill
+              priority
+              sizes="(max-width:1180px) 100vw, 1124px"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+        </div>
+      </section>
+
       <section>
         <div className="wrap">
           <div className="filter-row" role="group" aria-label="Filter projects by category">

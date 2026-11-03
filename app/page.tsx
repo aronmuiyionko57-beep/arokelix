@@ -135,7 +135,7 @@ export default function Home() {
           <Image src="/hero-photo.jpg" alt="AROKELIX technology professional at work" fill priority style={{ objectFit: "cover", objectPosition: "85% 30%" }} />
         </div>
         <div className="wrap hero-content">
-          <div className="hero-eyebrow">AROKELIX — Technology &amp; Creative Studio</div>
+          <div className="hero-eyebrow">AROKELIX — Technology &amp; Creative Company</div>
           <h1 className="hero-photo-h1">
             We build the digital systems <span className="accent">businesses grow on.</span>
           </h1>
@@ -378,7 +378,7 @@ export default function Home() {
             </div>
             <div className="ceo">
               <div style={{ position: "relative", width: "100%", aspectRatio: "4/5", borderRadius: "4px", overflow: "hidden" }}>
-                <Image src="/aron-photo.jpg" alt="Aron Muiyionko, CEO & Founder of AROKELIX" fill style={{ objectFit: "cover" }} />
+                <Image src="/aron-photo.jpg" alt="Aron Muiyionko, CEO & Founder of AROKELIX" fill sizes="(max-width:700px) 340px, 320px" style={{ objectFit: "cover" }} />
               </div>
               <div>
                 <h3>Aron Muiyionko</h3>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Check, ArrowRight } from "lucide-react";
 import SiteHeader from "../../components/SiteHeader";
@@ -48,6 +49,21 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="hero-actions">
             <a href="/contact" className="btn btn-primary">Start a Project</a>
             <a href="/work" className="btn btn-secondary">See Our Work</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="banner-wrap">
+        <div className="wrap">
+          <div className="photo-banner">
+            <Image
+              src={`/services/${service.slug}.jpg`}
+              alt=""
+              fill
+              priority
+              sizes="(max-width:1180px) 100vw, 1124px"
+              style={{ objectFit: "cover" }}
+            />
           </div>
         </div>
       </section>

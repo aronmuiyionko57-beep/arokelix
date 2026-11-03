@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Building2, Workflow, ShoppingBag, Users, Package, BarChart3,
   CalendarCheck, Globe2, Cog, Send, MessageCircle,
@@ -35,6 +36,21 @@ export default function Solutions() {
           <div className="hero-kicker">Solutions</div>
           <h1 style={{ maxWidth: "650px" }}>We solve business problems, not just build software.</h1>
           <p className="lede">Technology is the tool. The business problem is what actually matters.</p>
+        </div>
+      </section>
+
+      <section className="banner-wrap">
+        <div className="wrap">
+          <div className="photo-banner">
+            <Image
+              src="/pages/solutions.jpg"
+              alt=""
+              fill
+              priority
+              sizes="(max-width:1180px) 100vw, 1124px"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         </div>
       </section>
 

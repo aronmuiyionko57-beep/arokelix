@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 
@@ -19,6 +20,21 @@ export default function Lab() {
             A space for the new technology, AI experiments and internal tools
             we&apos;re building outside of client work.
           </p>
+        </div>
+      </section>
+
+      <section className="banner-wrap">
+        <div className="wrap">
+          <div className="photo-banner">
+            <Image
+              src="/pages/lab.jpg"
+              alt=""
+              fill
+              priority
+              sizes="(max-width:1180px) 100vw, 1124px"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         </div>
       </section>
 

@@ -1,10 +1,11 @@
-import { Target, Eye, Gem, Send, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Target, Eye, Gem, Send, ArrowRight, Check } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 
 export const metadata = {
-  title: "About AROKELIX | Digital Technology & Creative Studio",
-  description: "AROKELIX is a technology and creative studio building websites, software and digital systems for businesses that need more than a template.",
+  title: "About AROKELIX | Digital Technology & Creative Company",
+  description: "AROKELIX is a technology and creative company building websites, software and digital systems for businesses that need more than a template.",
 };
 
 export default function About() {
@@ -12,6 +13,13 @@ export default function About() {
     { icon: Target, label: "Mission", name: "Real software for real businesses", desc: "Give organizations access to engineering and design usually reserved for companies with in-house product teams." },
     { icon: Eye, label: "Vision", name: "Technology that fits the business", desc: "We choose tools to match what a business actually needs — never the other way around." },
     { icon: Gem, label: "Values", name: "Built to last, not to demo", desc: "Every project is judged by whether it's still working — and still helping — a year later." },
+  ];
+
+  const ways = [
+    "We start with your business problem, not a template.",
+    "You talk directly to the person building your project.",
+    "You get a clear scope and a fixed quote before work begins.",
+    "We stay available for support and improvements after launch.",
   ];
 
   return (
@@ -33,6 +41,21 @@ export default function About() {
         </div>
       </section>
 
+      <section className="banner-wrap">
+        <div className="wrap">
+          <div className="photo-banner">
+            <Image
+              src="/about/about-workspace.jpg"
+              alt=""
+              fill
+              priority
+              sizes="(max-width:1180px) 100vw, 1124px"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+        </div>
+      </section>
+
       <section>
         <div className="wrap">
           <div className="section-head">
@@ -50,6 +73,31 @@ export default function About() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-alt">
+        <div className="wrap about-split">
+          <div className="about-photo">
+            <Image
+              src="/about/about-collaboration.jpg"
+              alt=""
+              fill
+              sizes="(max-width:900px) 100vw, 540px"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+          <div>
+            <div className="hero-kicker">How we work</div>
+            <h2 style={{ fontSize: "clamp(26px,3.4vw,36px)", marginBottom: "22px" }}>
+              Working with AROKELIX is simple and direct.
+            </h2>
+            <ul className="check-list">
+              {ways.map((w) => (
+                <li key={w}><Check size={18} /><span>{w}</span></li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

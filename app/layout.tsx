@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "@fontsource/space-grotesk/400.css";
 import "@fontsource/space-grotesk/500.css";
 import "@fontsource/space-grotesk/600.css";
@@ -12,7 +12,7 @@ import "./globals.css";
 import { SITE_URL, SITE_NAME, SITE_EMAIL, SITE_PHONE, SITE_DESCRIPTION } from "./lib/site";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import ScrollProgress from "./components/ScrollProgress";
-import AnnouncementBar from "./components/AnnouncementBar";
+import TopBar from "./components/TopBar";
 
 const TITLE = "AROKELIX | Technology, Software & Digital Solutions";
 
@@ -34,6 +34,10 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: ["/og-image.png"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B1220",
 };
 
 const jsonLd = {
@@ -58,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ScrollProgress />
-        <AnnouncementBar />
+        <TopBar />
         {children}
         <FloatingWhatsApp />
       </body>
