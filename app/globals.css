@@ -954,3 +954,36 @@ textarea:focus-visible{
 /* Leadership: bigger portrait */
 .ceo{grid-template-columns:320px 1fr;gap:56px;}
 @media (max-width:700px){.ceo{grid-template-columns:1fr;}}
+
+/* ===== Hero upgrade ===== */
+.hero{padding:112px 0 96px;}
+.hero h1.hero-photo-h1{font-size:clamp(38px,5.6vw,66px);max-width:720px;line-height:1.04;}
+.hero-photo-lede{font-size:18.5px;max-width:52ch;}
+.hero-content{max-width:760px;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px;border-radius:999px;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.18);
+  color:rgba(255,255,255,0.9);
+  font-size:13px;
+  backdrop-filter:blur(6px);
+}
+.hero-chip svg{color:var(--gold);}
+@media (max-width:600px){.hero{padding:72px 0 64px;}}
+
+/* ===== Process: two-column layout ===== */
+.process-split{
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:72px;
+  align-items:start;
+}
+.process-intro{position:sticky;top:110px;}
+.process-intro h2{font-size:clamp(28px,3.6vw,42px);margin-bottom:16px;}
+.process-intro p{color:var(--text-2);font-size:16.5px;max-width:38ch;margin:0 0 26px;}
+@media (max-width:900px){
+  .process-split{grid-template-columns:1fr;gap:36px;}
+  .process-intro{position:static;}
+}

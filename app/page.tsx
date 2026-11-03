@@ -129,31 +129,22 @@ export default function Home() {
           <Image src="/hero-photo.jpg" alt="AROKELIX technology professional at work" fill priority style={{ objectFit: "cover", objectPosition: "85% 30%" }} />
         </div>
         <div className="wrap hero-content">
-          <div className="hero-eyebrow">Welcome to AROKELIX</div>
+          <div className="hero-eyebrow">AROKELIX — Technology &amp; Creative Studio</div>
           <h1 className="hero-photo-h1">
-            Technology Solutions for a <span className="accent">Bigger Tomorrow</span>
+            We build the digital systems <span className="accent">businesses grow on.</span>
           </h1>
           <p className="hero-photo-lede">
-            We design and build modern websites, powerful brand identities and smart
-            digital systems that help businesses grow — locally and globally.
+            Websites, software and brand identities designed around your real
+            business problem — built by the people you&apos;ll actually talk to.
           </p>
           <div className="hero-photo-actions">
-            <a href="/services" className="btn btn-gold">Our Services <ArrowRight size={16} /></a>
+            <a href="/contact" className="btn btn-gold"><Send size={16} /> Start a Project</a>
             <a href="/work" className="btn btn-outline-light">View Our Work <ArrowRight size={16} /></a>
           </div>
-          <div className="hero-proof-row">
-            <div className="hero-proof-item">
-              <div className="hero-proof-icon"><Globe size={18} /></div>
-              <div><b>Global Reach</b><span>Local Roots</span></div>
-            </div>
-            <div className="hero-proof-item">
-              <div className="hero-proof-icon"><Users size={18} /></div>
-              <div><b>Real Projects</b><span>Delivered</span></div>
-            </div>
-            <div className="hero-proof-item">
-              <div className="hero-proof-icon"><Code2 size={18} /></div>
-              <div><b>Direct Access</b><span>Work With the Builder</span></div>
-            </div>
+          <div className="hero-chips">
+            <span className="hero-chip"><Users size={14} /> Direct access to the builder</span>
+            <span className="hero-chip"><Globe size={14} /> Remote — serving clients worldwide</span>
+            <span className="hero-chip"><Mail size={14} /> Reply within one business day</span>
           </div>
         </div>
       </section>
@@ -295,23 +286,27 @@ export default function Home() {
       <section id="process" className="process bg-alt">
         <Reveal>
           <div className="wrap">
-            <div className="section-head">
-              <h2>Our process</h2>
-              <p>The same seven steps for every engagement, scaled to the size of the project.</p>
-            </div>
-            <div className="process-timeline">
-              {processSteps.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <div className="process-item" key={s.n}>
-                    <div className="process-num">{s.n}</div>
-                    <div className="process-content">
-                      <h3 style={iconLink}><Icon size={20} aria-hidden="true" /> {s.title}</h3>
-                      <p>{s.text}</p>
+            <div className="process-split">
+              <div className="process-intro">
+                <div className="hero-kicker">How we work</div>
+                <h2>A clear process, from first call to launch and beyond.</h2>
+                <p>The same seven steps for every engagement, scaled to the size of the project — so you always know what happens next.</p>
+                <a href="/contact" className="btn btn-primary" style={iconLink}><Send size={16} /> Start a Project</a>
+              </div>
+              <div className="process-timeline">
+                {processSteps.map((s) => {
+                  const Icon = s.icon;
+                  return (
+                    <div className="process-item" key={s.n}>
+                      <div className="process-num">{s.n}</div>
+                      <div className="process-content">
+                        <h3 style={iconLink}><Icon size={20} aria-hidden="true" /> {s.title}</h3>
+                        <p>{s.text}</p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </Reveal>
