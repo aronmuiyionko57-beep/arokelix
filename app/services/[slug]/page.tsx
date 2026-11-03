@@ -4,6 +4,17 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import { services, getService } from "../data";
 
+const seoTitles: Record<string, string> = {
+  "websites-web-applications": "Website & Web App Development",
+  "custom-software": "Custom Software Development",
+  "e-commerce": "E-commerce Website Development",
+  "mobile-applications": "Mobile App Development",
+  "branding-creative": "Branding & Logo Design",
+  "digital-marketing": "Digital Marketing & SEO",
+  "automation-business-systems": "Business Automation & Systems",
+  "it-digital-consulting": "IT & Digital Consulting",
+};
+
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
@@ -13,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const service = getService(slug);
   if (!service) return {};
   return {
-    title: `${service.title} | AROKELIX`,
+    title: `${seoTitles[slug] ?? service.title} | AROKELIX`,
     description: service.tagline,
   };
 }

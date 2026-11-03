@@ -7,14 +7,6 @@ import SiteFooter from "../components/SiteFooter";
 
 const projects = [
   {
-    name: "GMJR Critical Minerals Mozambique",
-    category: "Websites",
-    industry: "Mining",
-    desc: "A corporate website for a Mozambican critical-minerals exploration and development company, presenting their mission, mineral portfolio and partnership approach.",
-    image: "/gmjr-screenshot.png",
-    caseStudy: "/work/gmjr",
-  },
-  {
     name: "Tensei Ark",
     category: "E-commerce",
     industry: "Retail",

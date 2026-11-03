@@ -40,32 +40,37 @@ function Reveal({ children }: { children: React.ReactNode }) {
 }
 
 function Counter({ end, suffix = "", duration = 1200 }: { end: number; suffix?: string; duration?: number }) {
-  const ref = useRef(null);
-  const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [count, setCount] = useState(end);
 
   useEffect(() => {
     const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let frame = 0;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true);
-          const startTime = performance.now();
-          const step = (now: number) => {
-            const progress = Math.min((now - startTime) / duration, 1);
-            setCount(Math.floor(progress * end));
-            if (progress < 1) requestAnimationFrame(step);
-            else setCount(end);
-          };
-          requestAnimationFrame(step);
-          observer.disconnect();
-        }
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        setCount(0);
+        const startTime = performance.now();
+        const step = (now: number) => {
+          const progress = Math.min((now - startTime) / duration, 1);
+          setCount(Math.round(progress * end));
+          if (progress < 1) frame = requestAnimationFrame(step);
+        };
+        frame = requestAnimationFrame(step);
       },
       { threshold: 0.4 }
     );
-    if (el) observer.observe(el);
-    return () => observer.disconnect();
-  }, [end, duration, started]);
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
+  }, [end, duration]);
 
   return <span ref={ref}>{count}{suffix}</span>;
 }
@@ -192,15 +197,6 @@ export default function Home() {
           </div>
           <div className="wrap" style={{ padding: 0 }}>
             <div className="work-grid">
-              <div className="work-card">
-                <div className="work-visual" aria-hidden="true">
-                  <Image src="/gmjr-screenshot.png" alt="" fill style={{ objectFit: "cover", objectPosition: "top" }} />
-                </div>
-                <div className="work-meta">MINING — WEBSITE</div>
-                <h3>GMJR Critical Minerals Mozambique</h3>
-                <p>A corporate website for a Mozambican critical-minerals exploration and development company.</p>
-                <a href="/work/gmjr" className="work-link">View case study →</a>
-              </div>
               <div className="work-card">
                 <div className="work-visual" aria-hidden="true">
                   <Image src="/tenseiark-screenshot.png" alt="" fill style={{ objectFit: "cover", objectPosition: "top" }} />
