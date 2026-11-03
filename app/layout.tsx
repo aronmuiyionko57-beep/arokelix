@@ -10,6 +10,8 @@ import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
 import "./globals.css";
 import { SITE_URL, SITE_NAME, SITE_EMAIL, SITE_PHONE, SITE_DESCRIPTION } from "./lib/site";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import ScrollProgress from "./components/ScrollProgress";
 
 const TITLE = "AROKELIX | Technology, Software & Digital Solutions";
 
@@ -54,7 +56,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <ScrollProgress />
         {children}
+        <FloatingWhatsApp />
       </body>
     </html>
   );
