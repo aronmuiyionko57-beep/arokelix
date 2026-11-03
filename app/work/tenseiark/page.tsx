@@ -1,7 +1,7 @@
 import Image from "next/image";
 import {
   LayoutGrid, ShoppingCart, Heart, GitCompare, Banknote,
-  Hammer, Palette, CircleCheck, ExternalLink, ArrowLeft, Send, MessageCircle,
+  Hammer, Palette, CircleCheck, ExternalLink, ArrowLeft, Send, MessageCircle, Tag,
 } from "lucide-react";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
@@ -11,6 +11,13 @@ export const metadata = {
   title: "Tensei Ark — Case Study | AROKELIX",
   description: "How AROKELIX built a full e-commerce storefront for a Nairobi-based electronics retailer.",
 };
+
+const facts = [
+  { icon: Tag, label: "Industry", value: "Electronics retail" },
+  { icon: ShoppingCart, label: "Type", value: "E-commerce store" },
+  { icon: Banknote, label: "Currencies", value: "KSH and USD" },
+  { icon: GitCompare, label: "Shopper tools", value: "Cart, wishlist, compare" },
+];
 
 const features = [
   { icon: LayoutGrid, text: "A live product catalog" },
@@ -29,7 +36,7 @@ export default function TenseiArkCaseStudy() {
 
       <section id="main-content" className="hero">
         <div className="wrap">
-          <a href="/work" className="work-link" style={{ ...row, marginBottom: "20px" }}>
+          <a href="/work" className="work-link" style={{ ...row, marginBottom: "20px", color: "#fff", borderBottomColor: "#fff" }}>
             <ArrowLeft size={16} aria-hidden="true" /> All projects
           </a>
           <div className="hero-kicker">Case Study — Retail / E-commerce</div>
@@ -42,14 +49,33 @@ export default function TenseiArkCaseStudy() {
         </div>
       </section>
 
-      <section style={{ paddingTop: 0 }}>
+      <section className="facts-wrap">
+        <div className="wrap">
+          <div className="facts">
+            {facts.map((f) => {
+              const Icon = f.icon;
+              return (
+                <div className="fact" key={f.label}>
+                  <div className="fact-icon"><Icon size={20} aria-hidden="true" /></div>
+                  <div>
+                    <div className="fact-label">{f.label}</div>
+                    <div className="fact-value">{f.value}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ paddingTop: "56px" }}>
         <div className="wrap">
           <Image
             src="/tenseiark-screenshot.png"
             alt="Tensei Ark online store screenshot"
             width={1600}
             height={900}
-            style={{ width: "100%", height: "auto", borderRadius: "8px", border: "1px solid var(--line)" }}
+            style={{ width: "100%", height: "auto", borderRadius: "16px", border: "1px solid var(--line)", boxShadow: "0 24px 60px rgba(11,18,32,0.14)" }}
           />
         </div>
       </section>

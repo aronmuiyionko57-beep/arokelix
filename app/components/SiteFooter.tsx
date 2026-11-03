@@ -1,4 +1,22 @@
 import Image from "next/image";
+import { Mail, Phone, Globe } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
+import { SITE_EMAIL, SITE_PHONE, WHATSAPP_URL } from "../lib/site";
+
+const company = [
+  { href: "/about", label: "About" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/work", label: "Work" },
+  { href: "/contact", label: "Contact" },
+];
+
+const serviceLinks = [
+  { href: "/services/websites-web-applications", label: "Websites & Web Apps" },
+  { href: "/services/custom-software", label: "Custom Software" },
+  { href: "/services/e-commerce", label: "E-commerce" },
+  { href: "/services/branding-creative", label: "Branding & Creative" },
+  { href: "/services/digital-marketing", label: "Digital Marketing" },
+];
 
 export default function SiteFooter() {
   return (
@@ -6,37 +24,41 @@ export default function SiteFooter() {
       <div className="wrap">
         <div className="footer-grid">
           <div>
-            <Image src="/logo.png" alt="AROKELIX" width={180} height={57} style={{ height: "56px", width: "auto", mixBlendMode: "multiply" }} />
+            <a href="/" className="logo" aria-label="AROKELIX home">
+              <Image src="/logo.png" alt="AROKELIX" width={220} height={70} className="logo-img" />
+            </a>
             <p className="footer-brand-tagline">Digital Products · Technology · Creative Solutions.</p>
           </div>
-          <div className="footer-col">
+
+          <nav className="footer-col" aria-label="Company">
             <h4>Company</h4>
             <ul>
-              <li><a href="/about">About</a></li>
-              <li><a href="/solutions">Solutions</a></li>
-              <li><a href="/work">Work</a></li>
-              <li><a href="/contact">Contact</a></li>
+              {company.map((l) => (
+                <li key={l.href}><a href={l.href}>{l.label}</a></li>
+              ))}
             </ul>
-          </div>
-          <div className="footer-col">
+          </nav>
+
+          <nav className="footer-col" aria-label="Services">
             <h4>Services</h4>
             <ul>
-              <li><a href="/services/websites-web-applications">Websites</a></li>
-              <li><a href="/services/custom-software">Software</a></li>
-              <li><a href="/services/e-commerce">E-commerce</a></li>
-              <li><a href="/services/branding-creative">Branding</a></li>
-              <li><a href="/services/digital-marketing">Digital Marketing</a></li>
+              {serviceLinks.map((l) => (
+                <li key={l.href}><a href={l.href}>{l.label}</a></li>
+              ))}
             </ul>
-          </div>
+          </nav>
+
           <div className="footer-col">
             <h4>Contact</h4>
             <ul>
-              <li><a href="mailto:aronmuiyionko57@gmail.com">aronmuiyionko57@gmail.com</a></li>
-              <li><a href="tel:+254706519789">+254 706 519 789</a></li>
-              <li>Remote — worldwide</li>
+              <li><Mail size={16} aria-hidden="true" /><a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a></li>
+              <li><Phone size={16} aria-hidden="true" /><a href={`tel:${SITE_PHONE}`}>+254 706 519 789</a></li>
+              <li><SiWhatsapp size={16} aria-hidden="true" /><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+              <li><Globe size={16} aria-hidden="true" /><span>Remote — worldwide</span></li>
             </ul>
           </div>
         </div>
+
         <div className="footer-bottom">
           © {new Date().getFullYear()} AROKELIX. All rights reserved.
         </div>

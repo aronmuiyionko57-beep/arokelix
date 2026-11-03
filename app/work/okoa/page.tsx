@@ -2,7 +2,7 @@ import Image from "next/image";
 import {
   Home, Search, Tag, PackageCheck, Megaphone, Smartphone,
   Hammer, MessageCircle, Palette, CircleCheck, ExternalLink,
-  ArrowLeft, Send,
+  ArrowLeft, Send, ShoppingCart, LayoutGrid,
 } from "lucide-react";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
@@ -12,6 +12,13 @@ export const metadata = {
   title: "OKOA Furniture — Case Study | AROKELIX",
   description: "How AROKELIX built an online furniture store with shop-by-room browsing and WhatsApp ordering for a Kenyan furniture brand.",
 };
+
+const facts = [
+  { icon: Tag, label: "Industry", value: "Furniture" },
+  { icon: ShoppingCart, label: "Type", value: "E-commerce store" },
+  { icon: LayoutGrid, label: "Catalogue", value: "270+ pieces, 7 rooms" },
+  { icon: MessageCircle, label: "Ordering", value: "Via WhatsApp" },
+];
 
 const features = [
   { icon: Home, text: "Shop-by-room browsing across seven categories: Living Room, Bedroom, Dining Room, Home Office, Outdoor, TV Area and Custom Furniture" },
@@ -31,7 +38,7 @@ export default function OkoaCaseStudy() {
 
       <section id="main-content" className="hero">
         <div className="wrap">
-          <a href="/work" className="work-link" style={{ ...row, marginBottom: "20px" }}>
+          <a href="/work" className="work-link" style={{ ...row, marginBottom: "20px", color: "#fff", borderBottomColor: "#fff" }}>
             <ArrowLeft size={16} aria-hidden="true" /> All projects
           </a>
           <div className="hero-kicker">Case Study — Furniture / E-commerce</div>
@@ -43,14 +50,33 @@ export default function OkoaCaseStudy() {
         </div>
       </section>
 
-      <section style={{ paddingTop: 0 }}>
+      <section className="facts-wrap">
+        <div className="wrap">
+          <div className="facts">
+            {facts.map((f) => {
+              const Icon = f.icon;
+              return (
+                <div className="fact" key={f.label}>
+                  <div className="fact-icon"><Icon size={20} aria-hidden="true" /></div>
+                  <div>
+                    <div className="fact-label">{f.label}</div>
+                    <div className="fact-value">{f.value}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ paddingTop: "56px" }}>
         <div className="wrap">
           <Image
             src="/okoa-screenshot.png"
             alt="OKOA Furniture online store screenshot"
             width={1600}
             height={900}
-            style={{ width: "100%", height: "auto", borderRadius: "8px", border: "1px solid var(--line)" }}
+            style={{ width: "100%", height: "auto", borderRadius: "16px", border: "1px solid var(--line)", boxShadow: "0 24px 60px rgba(11,18,32,0.14)" }}
           />
         </div>
       </section>
