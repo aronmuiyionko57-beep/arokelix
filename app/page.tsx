@@ -399,6 +399,8 @@ export default function Home() {
 
       <ProjectPlanner />
 
+      <LatestInsights />
+
       <FAQ />
 
       <section id="contact" className="cta">
